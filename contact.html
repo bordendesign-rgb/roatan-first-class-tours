@@ -297,26 +297,26 @@
 
         <!-- Right Column: Inquiry Form -->
         <div class="contact-form-card">
-            <form class="main-contact-form" onsubmit="event.preventDefault(); alert('Your message has been sent successfully. Our team will contact you shortly!');">
+            <form class="main-contact-form" name="contact" method="POST" data-netlify="true">
                 
                 <div class="form-field">
                     <label for="first-name">First Name</label>
-                    <input type="text" id="first-name" placeholder="John" required>
+                    <input type="text" id="first-name" name="first-name" placeholder="John" required>
                 </div>
 
                 <div class="form-field">
                     <label for="last-name">Last Name</label>
-                    <input type="text" id="last-name" placeholder="Doe" required>
+                    <input type="text" id="last-name" name="last-name" placeholder="Doe" required>
                 </div>
 
                 <div class="form-field span-2">
                     <label for="email-address">Email Address</label>
-                    <input type="email" id="email-address" placeholder="johndoe@example.com" required>
+                    <input type="email" id="email-address" name="email" placeholder="johndoe@example.com" required>
                 </div>
 
                 <div class="form-field span-2">
                     <label for="package-select">Select Your Adventure</label>
-                    <select id="package-select" required>
+                    <select id="package-select" name="package" required>
                         <option value="" disabled selected>-- Choose an Option --</option>
                         <option value="general">General Inquiry / Question</option>
                         <option value="personalized">Design a Personalized Package</option>
@@ -328,7 +328,7 @@
 
                 <div class="form-field span-2">
                     <label for="user-message">Your Message</label>
-                    <textarea id="user-message" rows="6" placeholder="Tell us about your group size, cruise ship arrival times, or custom requests..." required></textarea>
+                    <textarea id="user-message" name="message" rows="6" placeholder="Tell us about your group size, cruise ship arrival times, or custom requests..." required></textarea>
                 </div>
 
                 <button type="submit" class="form-submit-btn">Send Message</button>
