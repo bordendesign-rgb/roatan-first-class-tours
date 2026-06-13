@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Roatan First Class Tours</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta property="og:title" content="Contact Us | Roatan First Class Tours">
+    <meta property="og:image" content="first-class-logo.jpeg">
+    <link rel="icon" type="image/jpeg" href="first-class-logo.jpeg">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; color: #333; background-color: #fcfcfc; }
+
+        /* Header */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 0.5rem 5%; background: #fff; position: relative; z-index: 100;
+        }
+        .logo { height: 200px; width: auto; display: block; }
+        
+        .header-text { 
+            font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: #003366; margin: 0 20px; text-align: center;
+        }
+
+        nav { display: flex; align-items: center; gap: 20px; }
+        nav a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; }
+        .book-btn { background: #ffb703; padding: 10px 20px; border-radius: 5px; color: #fff; font-weight: bold; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+        .hero { 
+            position: relative; height: 50vh; 
+            background: url('roatan-reef.jpeg') center/cover;
+            display: flex; flex-direction: column; justify-content: center; 
+            padding: 0 5%; color: white;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0, 51, 102, 0.7) 0%, rgba(0, 51, 102, 0.85) 100%);
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+        .hero-content { position: relative; z-index: 1; text-align: center; width: 100%; }
+        .gold-line { display: block; width: 50px; height: 3px; background: #ffb703; margin: 10px auto; }
+        .hero h1 { font-size: 3.5rem; }
+
+        /* Main Container */
+        .contact-container { padding: 5rem 5%; max-width: 1100px; margin: auto; }
+
+        .section-intro { text-align: center; margin-bottom: 4rem; }
+        .section-intro h2 { color: #003366; font-size: 2.5rem; margin-bottom: 10px; }
+        .section-intro p { color: #666; font-size: 1.1rem; }
+
+        /* Two-Column Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: start;
+            margin-bottom: 5rem;
+        }
+
+        /* Sidebar Info Panel */
+        .contact-info-panel {
+            background: linear-gradient(135deg, #003366 0%, #002244 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0,51,102,0.1);
+        }
+        .contact-info-panel h3 {
+            color: #ffb703;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-info-panel p {
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-size: 1.05rem;
+        }
+        .info-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .info-card i {
+            font-size: 1.3rem;
+            color: #ffb703;
+            margin-top: 4px;
+        }
+        .info-card h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+        .info-card p, .info-card a {
+            margin: 0;
+            font-size: 1rem;
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+        .info-card a:hover {
+            color: #ffb703;
+        }
+        .panel-whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25D366;
+            color: white !important;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem !important;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Form Styling */
+        .contact-form-card {
+            background: #fff;
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            border: 1px solid #eee;
+        }
+        .main-contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-field { display: flex; flex-direction: column; }
+        .form-field.span-2 { grid-column: span 2; }
+        
+        .main-contact-form label {
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        .main-contact-form input[type="text"],
+        .main-contact-form input[type="email"],
+        .main-contact-form select,
+        .main-contact-form textarea {
+            padding: 12px 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border 0.3s;
+            background-color: #fff;
+        }
+        .main-contact-form input:focus,
+        .main-contact-form select:focus,
+        .main-contact-form textarea:focus {
+            border-color: #003366;
+            outline: none;
+        }
+
+        .form-submit-btn {
+            grid-column: span 2;
+            background: #ffb703;
+            color: #003366;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .form-submit-btn:hover { background: #e6a400; }
+
+        /* Map Section Styling */
+        .map-section {
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #eee;
+            padding-top: 4rem;
+        }
+        .map-wrapper {
+            width: 100%;
+            height: 450px;
+            border: none;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.02);
+        }
+
+        /* Footer */
+        footer { background: #fff; padding: 3rem 5%; color: #003366; border-top: 2px solid #eee; }
+        .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; align-items: start; }
+        .footer-logo { height: 160px; }
+        .footer-links h4, .footer-contact h4 { margin-bottom: 15px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+        .footer-links p a { text-decoration: none; color: #003366; display: block; margin-bottom: 8px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 10px; }
+        .social-icons a { color: #003366; font-size: 1.5rem; }
+        .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; justify-content: flex-start; }
+        .whatsapp-btn { background: #25D366; color: white; padding: 2px 8px; border-radius: 4px; text-decoration: none; font-size: 0.7rem; font-weight: bold; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .menu-toggle { display: block; }
+            nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; flex-direction: column; padding: 20px; gap: 15px; align-items: center; }
+            nav.active { display: flex; }
+            header { flex-direction: column; padding: 1rem; }
+            .header-text { font-size: 2rem; margin: 10px 0; }
+            
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .contact-form-card { padding: 2rem 1.5rem; }
+            .main-contact-form { grid-template-columns: 1fr; }
+            .form-field.span-2, .form-submit-btn { grid-column: span 1; }
+            .map-wrapper { height: 320px; }
+
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .footer-logo { margin: 0 auto; }
+            .social-icons { justify-content: center; }
+            .contact-item { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="first-class-logo.jpeg" class="logo" alt="Roatan First Class Tours">
+    <div class="header-text">Roatan First Class Tours</div>
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="tours.html">Packages</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="tours.html" class="book-btn">BOOK NOW</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Contact Our Team</h1>
+        <span class="gold-line"></span>
+    </div>
+</section>
+
+<main class="contact-container">
+
+    <div class="section-intro">
+        <h2>Get In Touch</h2>
+        <span class="gold-line"></span>
+        <p>Have questions or want to secure your dates? Reach out and plan your premium island escape.</p>
+    </div>
+
+    <div class="contact-grid">
+        
+        <!-- Left Column: Business Details -->
+        <div class="contact-info-panel">
+            <h3>First-Class Service</h3>
+            <p>Whether you want to lock down one of our signature curated packages or plan a unique custom route across Roatán, our coordinators are here to organize every detail.</p>
+            
+            <div class="info-details">
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Direct Phone Lines</h4>
+                        <p><a href="tel:+50494584225">(504) 9458-4225</a> <a href="https://wa.me/50494584225" class="panel-whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat</a></p>
+                        <p style="margin-top: 5px;"><a href="tel:+50487870047">(504) 8787-0047</a></p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Inquiries</h4>
+                        <p><a href="mailto:info@roatanfirstclasstours.com">info@roatanfirstclasstours.com</a></p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Main Office Location</h4>
+                        <p>Roatán, Bay Islands,<br>Honduras</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Inquiry Form -->
+        <div class="contact-form-card">
+            <form class="main-contact-form" onsubmit="event.preventDefault(); alert('Your message has been sent successfully. Our team will contact you shortly!');">
+                
+                <div class="form-field">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" placeholder="John" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" placeholder="Doe" required>
+                </div>
+
+                <div class="form-field span-2">
+                    <label for="email-address">Email Address</label>
+                    <input type="email" id="email-address" placeholder="johndoe@example.com" required>
+                </div>
+
+                <div class="form-field span-2">
+                    <label for="package-select">Select Your Adventure</label>
+                    <select id="package-select" required>
+                        <option value="" disabled selected>-- Choose an Option --</option>
+                        <option value="general">General Inquiry / Question</option>
+                        <option value="personalized">Design a Personalized Package</option>
+                        <option value="jungle">Mayan Jungle Animal Park Package ($85)</option>
+                        <option value="sloth">Daniel Johnson's Sloth & Monkey Package ($75)</option>
+                        <option value="island">Island Tour Package ($55)</option>
+                    </select>
+                </div>
+
+                <div class="form-field span-2">
+                    <label for="user-message">Your Message</label>
+                    <textarea id="user-message" rows="6" placeholder="Tell us about your group size, cruise ship arrival times, or custom requests..." required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit-btn">Send Message</button>
+            </form>
+        </div>
+
+    </div>
+
+</main>
+
+<!-- Interactive Map Container above Footer -->
+<section class="map-section">
+    <iframe 
+        class="map-wrapper"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244971.9566144865!2d-86.51613143324683!3d16.3640242250106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f69e66ffab7e297%3A0xc3cf0fec4bf66dd2!2sRoatan!5e0!3m2!1sen!2shn!4v1710000000000!5m2!1sen!2shn" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div><img src="first-class-logo.jpeg" class="footer-logo" alt="Footer Logo"></div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="about.html">About Us</a></p>
+            <p><a href="tours.html">Packages</a></p>
+            <p><a href="reviews.html">Reviews</a></p>
+            <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-links">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tripadvisor"></i></a>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <div class="contact-item"><i class="fas fa-phone"></i> (504) 9458-4225 <a href="https://wa.me/50494584225" class="whatsapp-btn">WhatsApp</a></div>
+            <div class="contact-item"><i class="fas fa-phone"></i> (504) 8787-0047</div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> info@roatanfirstclasstours.com</div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Roatán, Bay Islands, Honduras</div>
+        </div>
+    </div>
+    <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.8; text-align: center;">
+        &copy; 2026 Roatan First Class Tours. All Rights Reserved.
+    </div>
+</footer>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const selectBox = document.getElementById('package-select');
+        if (selectBox) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedPackage = urlParams.get('package');
+            if (selectedPackage) {
+                selectBox.value = selectedPackage;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Roatan First Class Tours</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta property="og:title" content="About Us | Roatan First Class Tours">
+    <meta property="og:image" content="first-class-logo.jpeg">
+    <link rel="icon" type="image/jpeg" href="first-class-logo.jpeg">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; color: #333; }
+
+        /* Header */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 0.5rem 5%; background: #fff; position: relative; z-index: 100;
+        }
+        .logo { height: 200px; width: auto; display: block; }
+        
+        .header-text { 
+            font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: #003366; margin: 0 20px; text-align: center;
+        }
+
+        nav { display: flex; align-items: center; gap: 20px; }
+        nav a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; }
+        .book-btn { background: #ffb703; padding: 10px 20px; border-radius: 5px; color: #fff; font-weight: bold; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+        .hero { 
+            position: relative; height: 50vh; 
+            background: url('roatan-reef.jpeg') center/cover;
+            display: flex; flex-direction: column; justify-content: center; 
+            padding: 0 5%; color: white;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0, 51, 102, 0.7) 0%, rgba(0, 51, 102, 0.85) 100%);
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+        .hero-content { position: relative; z-index: 1; text-align: center; width: 100%; }
+        .gold-line { display: block; width: 50px; height: 3px; background: #ffb703; margin: 10px auto; }
+        .hero h1 { font-size: 3.5rem; }
+
+        /* About Content */
+        .about-section { padding: 4rem 5%; max-width: 900px; margin: auto; }
+        .content-img { width: 100%; height: 400px; object-fit: cover; border-radius: 12px; margin: 20px 0; }
+        .about-text h2 { color: #003366; font-size: 2.5rem; margin-bottom: 10px; }
+        .about-text p { margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8; }
+
+        /* Nature Highlight */
+        .nature-section { padding: 4rem 5%; text-align: center; background: #fdfaf5; }
+
+        /* Footer */
+        footer { background: #fff; padding: 3rem 5%; color: #003366; border-top: 2px solid #eee; }
+        .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; align-items: start; }
+        .footer-logo { height: 160px; }
+        .footer-links h4, .footer-contact h4 { margin-bottom: 15px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+        .footer-links p a { text-decoration: none; color: #003366; display: block; margin-bottom: 8px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 10px; }
+        .social-icons a { color: #003366; font-size: 1.5rem; }
+        .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; justify-content: flex-start; }
+        .whatsapp-btn { background: #25D366; color: white; padding: 2px 8px; border-radius: 4px; text-decoration: none; font-size: 0.7rem; font-weight: bold; }
+
+        @media (max-width: 900px) {
+            .menu-toggle { display: block; }
+            nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; flex-direction: column; padding: 20px; gap: 15px; align-items: center; }
+            nav.active { display: flex; }
+            header { flex-direction: column; padding: 1rem; }
+            .header-text { font-size: 2rem; margin: 10px 0; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .footer-logo { margin: 0 auto; }
+            .social-icons { justify-content: center; }
+            .contact-item { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="first-class-logo.jpeg" class="logo" alt="Roatan First Class Tours">
+    <div class="header-text">Roatan First Class Tours</div>
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="tours.html">Packages</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="tours.html" class="book-btn">BOOK NOW</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>About Us</h1>
+        <span class="gold-line"></span>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="about-text">
+        <h2>Meet the Team</h2>
+        <span class="gold-line" style="margin-left: 0;"></span>
+        <p>Behind Roatan First Class Tours are Tannia and Ted, two locals with a deep-rooted love for our beautiful island. Driven by a passion to showcase Roatán's wonders, they are dedicated to ensuring every guest experiences the island just as we do—with warmth, pride, and local insight.</p>
+        
+        <img src="ted-tania.jpeg" class="content-img" alt="Ted and Tania of First Class Tours">
+
+        <h2>Our Roatán Roots</h2>
+        <span class="gold-line" style="margin-left: 0;"></span>
+        <p>Roatan First Class Tours was born from a deep love for our island and a desire to share its hidden gems with visitors. We aren't just a tour company; we are local guides passionate about showing you the true soul of Roatán.</p>
+        
+        <img src="nurse-sharks-east.jpg" class="content-img" alt="East End Tour Experience">
+        
+        <h2>The First Class Promise</h2>
+        <span class="gold-line" style="margin-left: 0;"></span>
+        <p>Our name is our commitment. When you book with us, you are guaranteed personalized attention, reliable scheduling, and a focus on safety. We keep our groups small to ensure you never feel like "just another number," but rather a guest experiencing the island in comfort and style.</p>
+    </div>
+</section>
+
+<section class="nature-section">
+    <img src="roatan-turtle.jpeg" class="content-img" style="max-width: 800px;" alt="Roatan Reef">
+    <p>Join us to create unforgettable memories in the heart of the Caribbean.</p>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div><img src="first-class-logo.jpeg" class="footer-logo"></div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="about.html">About Us</a></p>
+            <p><a href="tours.html">Packages</a></p>
+            <p><a href="reviews.html">Reviews</a></p>
+            <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-links">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tripadvisor"></i></a>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <div class="contact-item"><i class="fas fa-phone"></i> (504) 9458-4225 <a href="https://wa.me/50494584225" class="whatsapp-btn">WhatsApp</a></div>
+            <div class="contact-item"><i class="fas fa-phone"></i> (504) 8787-0047</div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> info@roatanfirstclasstours.com</div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Roatán, Bay Islands, Honduras</div>
+        </div>
+    </div>
+    <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.8; text-align: center;">
+        &copy; 2026 Roatan First Class Tours. All Rights Reserved.
+    </div>
+</footer>
+
+</body>
+</html>

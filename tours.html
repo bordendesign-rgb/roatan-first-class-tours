@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Packages | Roatan First Class Tours</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta property="og:title" content="Our Packages | Roatan First Class Tours">
+    <meta property="og:image" content="first-class-logo.jpeg">
+    <link rel="icon" type="image/jpeg" href="first-class-logo.jpeg">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; color: #333; background-color: #fcfcfc; }
+
+        /* Header */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 0.5rem 5%; background: #fff; position: relative; z-index: 100;
+        }
+        .logo { height: 200px; width: auto; display: block; }
+        
+        .header-text { 
+            font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: #003366; margin: 0 20px; text-align: center;
+        }
+
+        nav { display: flex; align-items: center; gap: 20px; }
+        nav a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; }
+        .book-btn { background: #ffb703; padding: 10px 20px; border-radius: 5px; color: #fff; font-weight: bold; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+        .hero { 
+            position: relative; height: 50vh; 
+            background: url('roatan-reef.jpeg') center/cover;
+            display: flex; flex-direction: column; justify-content: center; 
+            padding: 0 5%; color: white;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0, 51, 102, 0.7) 0%, rgba(0, 51, 102, 0.85) 100%);
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+        .hero-content { position: relative; z-index: 1; text-align: center; width: 100%; }
+        .gold-line { display: block; width: 50px; height: 3px; background: #ffb703; margin: 10px auto; }
+        .hero h1 { font-size: 3.5rem; }
+
+        /* Banner Style */
+        .drinks-banner {
+            background: linear-gradient(135deg, #003366 0%, #002244 100%);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 4rem;
+            box-shadow: 0 4px 15px rgba(0,51,102,0.15);
+            border-left: 5px solid #ffb703;
+        }
+        .drinks-banner h2 {
+            font-size: 1.8rem;
+            color: #ffb703;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .drinks-banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Packages Container */
+        .tours-container { padding: 5rem 5%; max-width: 1100px; margin: auto; }
+        
+        /* Card Layout */
+        .tour-card {
+            display: grid;
+            grid-template-columns: 1.2fr 1.8fr;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            margin-bottom: 3.5rem;
+            border: 1px solid #eee;
+        }
+        
+        /* CSS Slideshow Styles */
+        .tour-img-wrapper { 
+            position: relative; 
+            width: 100%; 
+            height: 100%; 
+            min-height: 350px; 
+            overflow: hidden;
+        }
+        .tour-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            position: absolute; 
+            top: 0; 
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* 2-Image Animation Loop */
+        .slider-2p .tour-img:nth-child(1) { animation: cycle2p 8s infinite; }
+        .slider-2p .tour-img:nth-child(2) { animation: cycle2p 8s infinite; animation-delay: 4s; }
+
+        @keyframes cycle2p {
+            0%, 45% { opacity: 1; z-index: 2; }
+            50%, 95% { opacity: 0; z-index: 1; }
+            100% { opacity: 1; z-index: 1; }
+        }
+
+        /* 3-Image Animation Loop */
+        .slider-3p .tour-img:nth-child(1) { animation: cycle3p 12s infinite; }
+        .slider-3p .tour-img:nth-child(2) { animation: cycle3p 12s infinite; animation-delay: 4s; }
+        .slider-3p .tour-img:nth-child(3) { animation: cycle3p 12s infinite; animation-delay: 8s; }
+
+        @keyframes cycle3p {
+            0%, 30% { opacity: 1; z-index: 2; }
+            33%, 97% { opacity: 0; z-index: 1; }
+            100% { opacity: 1; z-index: 1; }
+        }
+
+        /* 4-Image Animation Loop */
+        .slider-4p .tour-img:nth-child(1) { animation: cycle4p 16s infinite; }
+        .slider-4p .tour-img:nth-child(2) { animation: cycle4p 16s infinite; animation-delay: 4s; }
+        .slider-4p .tour-img:nth-child(3) { animation: cycle4p 16s infinite; animation-delay: 8s; }
+        .slider-4p .tour-img:nth-child(4) { animation: cycle4p 16s infinite; animation-delay: 12s; }
+
+        @keyframes cycle4p {
+            0%, 22% { opacity: 1; z-index: 2; }
+            25%, 97% { opacity: 0; z-index: 1; }
+            100% { opacity: 1; z-index: 1; }
+        }
+        
+        .tour-info { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+        .tour-title { color: #003366; font-size: 2rem; margin-bottom: 5px; }
+        .tour-meta { display: flex; gap: 20px; align-items: center; margin-bottom: 1.5rem; }
+        .tour-price { color: #ffb703; font-weight: 700; font-size: 1.4rem; }
+        .tour-features { font-size: 0.9rem; color: #666; background: #f5f5f5; padding: 4px 12px; border-radius: 20px; font-weight: 600; }
+        .tour-description { font-size: 1.05rem; line-height: 1.7; color: #555; margin-bottom: 2rem; }
+        
+        .tour-actions { display: flex; gap: 15px; align-items: center; }
+        .details-btn { 
+            background: #003366; color: #fff; padding: 12px 24px; border-radius: 6px; 
+            text-decoration: none; font-weight: bold; transition: background 0.3s; 
+            text-align: center;
+        }
+        .details-btn:hover { background: #002244; }
+
+        /* Custom Tour Section */
+        .custom-tour-section {
+            background: #fdfaf5;
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        .custom-content { max-width: 700px; margin: auto; }
+        .custom-content h3 { color: #003366; font-size: 2.2rem; margin-bottom: 15px; }
+        .custom-content p { font-size: 1.1rem; line-height: 1.7; color: #555; margin-bottom: 2rem; }
+        .custom-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .custom-whatsapp {
+            background: #25D366; color: white; padding: 12px 28px; border-radius: 6px;
+            text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 10px;
+        }
+        .custom-contact {
+            background: transparent; color: #003366; border: 2px solid #003366; padding: 10px 26px;
+            border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s;
+        }
+        .custom-contact:hover { background: #003366; color: white; }
+
+        /* Footer */
+        footer { background: #fff; padding: 3rem 5%; color: #003366; border-top: 2px solid #eee; }
+        .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; align-items: start; }
+        .footer-logo { height: 160px; }
+        .footer-links h4, .footer-contact h4 { margin-bottom: 15px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+        .footer-links p a { text-decoration: none; color: #003366; display: block; margin-bottom: 8px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 10px; }
+        .social-icons a { color: #003366; font-size: 1.5rem; }
+        .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; justify-content: flex-start; }
+        .whatsapp-btn { background: #25D366; color: white; padding: 2px 8px; border-radius: 4px; text-decoration: none; font-size: 0.7rem; font-weight: bold; }
+
+        /* Mobile Breakpoints */
+        @media (max-width: 900px) {
+            .menu-toggle { display: block; }
+            nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; flex-direction: column; padding: 20px; gap: 15px; align-items: center; }
+            nav.active { display: flex; }
+            header { flex-direction: column; padding: 1rem; }
+            .header-text { font-size: 2rem; margin: 10px 0; }
+            
+            .drinks-banner { margin-bottom: 2.5rem; padding: 1.5rem; }
+            .drinks-banner h2 { font-size: 1.4rem; }
+            
+            .tour-card { grid-template-columns: 1fr; }
+            .tour-img-wrapper { height: 280px; min-height: auto; }
+            .tour-info { padding: 1.8rem; }
+            .tour-title { font-size: 1.6rem; }
+            
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .footer-logo { margin: 0 auto; }
+            .social-icons { justify-content: center; }
+            .contact-item { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="first-class-logo.jpeg" class="logo" alt="Roatan First Class Tours">
+    <div class="header-text">Roatan First Class Tours</div>
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="tours.html">Packages</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="tours.html" class="book-btn">BOOK NOW</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Our First Class Packages</h1>
+        <span class="gold-line"></span>
+    </div>
+</section>
+
+<main class="tours-container">
+
+    <div class="drinks-banner">
+        <h2><i class="fas fa-glass-cheers"></i> Courtesy Drinks Included on Every Tour</h2>
+        <p>Stay refreshed with complimentary beverages while you explore the beauty of Roatán with us.</p>
+    </div>
+
+    <div class="tour-card">
+        <div class="tour-img-wrapper slider-2p">
+            <img src="maya-jungle.jpg" class="tour-img" alt="Mayan Jungle Animal Park">
+            <img src="san-simon.jpeg" class="tour-img" alt="San Simon Beach Club">
+        </div>
+        <div class="tour-info">
+            <h2 class="tour-title">Mayan Jungle Animal Park</h2>
+            <div class="tour-meta">
+                <span class="tour-price">$85 <small>/ person</small></span>
+                <span class="tour-features"><i class="fas fa-bolt"></i> Action Packed</span>
+            </div>
+            <p class="tour-description">Get ready for an adrenaline-fueled island rush! This premium combo package hooks you up with high-flying Zip-lines right through the lush canopy, rugged off-road ATV trails, and winds down perfectly with VIP beach access at the gorgeous San Simon Beach Club.</p>
+            <div class="tour-actions">
+                <a href="contact.html?package=jungle" class="details-btn">Book Package</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="tour-card">
+        <div class="tour-img-wrapper slider-3p">
+            <img src="daniel-johnson-sloth.jpg" class="tour-img" alt="Daniel Johnson's Sloth & Monkey">
+            <img src="west-snorkeling.jpg" class="tour-img" alt="Snorkeling in Roatan">
+            <img src="bradys-cay.jpeg" class="tour-img" alt="Brady's Cay">
+        </div>
+        <div class="tour-info">
+            <h2 class="tour-title">Daniel Johnson's Sloth & Monkey</h2>
+            <div class="tour-meta">
+                <span class="tour-price">$75 <small>/ person</small></span>
+                <span class="tour-features"><i class="fas fa-paw"></i> Wildlife & Snorkel</span>
+            </div>
+            <p class="tour-description">Meet Roatán's most famous residents up close! Experience the pure joy of hanging out with friendly sloths and playful monkeys at Daniel Johnson's sanctuary. Afterward, dive into pristine waters for a guided snorkeling tour before relaxing on the beautiful shores of Brady's Cay.</p>
+            <div class="tour-actions">
+                <a href="contact.html?package=sloth" class="details-btn">Book Package</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="tour-card">
+        <div class="tour-img-wrapper slider-4p">
+            <img src="west-end-roa.jpeg" class="tour-img" alt="Roatan Island Tour">
+            <img src="roatan-rum-factory.jpeg" class="tour-img" alt="Roatan Rum Factory">
+            <img src="city-tour.jpeg" class="tour-img" alt="Roatan Chocolate Factory City Tour">
+            <img src="roatan-brewing.jpg" class="tour-img" alt="Roatan Island Brewing Co">
+        </div>
+        <div class="tour-info">
+            <h2 class="tour-title">Island Tour</h2>
+            <div class="tour-meta">
+                <span class="tour-price">$55 <small>/ person</small></span>
+                <span class="tour-features"><i class="fas fa-beer"></i> Culture & Tastes</span>
+            </div>
+            <p class="tour-description">Savor the authentic flavors and scenery of Roatán. This sightseeing journey includes local stops at the famous Roatan Rum Factory, a sweet experience at the artisan Chocolate Factory, and a refreshing break at the popular Roatan Island Brewing Co. to taste handcrafted local craft beers.</p>
+            <div class="tour-actions">
+                <a href="contact.html?package=island" class="details-btn">Book Package</a>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<section class="custom-tour-section">
+    <div class="custom-content">
+        <h3>Design Your Custom Adventure</h3>
+        <p>Want something completely unique? If you would like to build a fully personalized tour experience tailored perfectly to your schedule and bucket list, we can easily make it happen for you.</p>
+        <div class="custom-actions">
+            <a href="https://wa.me/50494584225" class="custom-whatsapp"><i class="fab fa-whatsapp"></i> Customize via WhatsApp</a>
+            <a href="contact.html?package=personalized" class="custom-contact">Contact Our Team</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div><img src="first-class-logo.jpeg" class="footer-logo" alt="Footer Logo"></div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="about.html">About Us</a></p>
+            <p><a href="tours.html">Packages</a></p>
+            <p><a href="reviews.html">Reviews</a></p>
+            <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-links">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tripadvisor"></i></a>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <div class="contact-item"><i class="fas fa-phone"></i> (504) 9458-4225 <a href="https://wa.me/50494584225" class="whatsapp-btn">WhatsApp</a></div>
+            <div class="contact-item"><i class="fas fa-phone"></i> (504) 8787-0047</div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> info@roatanfirstclasstours.com</div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Roatán, Bay Islands, Honduras</div>
+        </div>
+    </div>
+    <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.8; text-align: center;">
+        &copy; 2026 Roatan First Class Tours. All Rights Reserved.
+    </div>
+</footer>
+
+</body>
+</html>

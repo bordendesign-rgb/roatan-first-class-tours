@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roatan First Class Tours</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta property="og:title" content="Roatan First Class Tours">
+    <meta property="og:image" content="first-class-logo.jpeg">
+    <link rel="icon" type="image/jpeg" href="first-class-logo.jpeg">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; color: #333; }
+
+        /* Header */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 0.5rem 5%; background: #fff; position: relative; z-index: 100;
+        }
+        .logo { height: 200px; width: auto; display: block; }
+        
+        .header-text { 
+            font-family: 'Great Vibes', cursive; 
+            font-size: 3.5rem; 
+            color: #003366; 
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        nav { display: flex; align-items: center; gap: 20px; }
+        nav a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; }
+        .book-btn { background: #ffb703; padding: 10px 20px; border-radius: 5px; color: #fff; font-weight: bold; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+        .hero { 
+            position: relative; height: 70vh; 
+            background: url('roatan-beach.jpeg') center/cover;
+            display: flex; flex-direction: column; justify-content: center; 
+            padding: 0 5%; color: white;
+        }
+        .hero::before, .experience-section::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0, 51, 102, 0.7) 0%, rgba(0, 51, 102, 0.85) 100%);
+        }
+        .hero::before { clip-path: ellipse(150% 100% at 50% 0%); }
+        .hero-content { position: relative; z-index: 1; max-width: 600px; }
+        
+        .cursive-label { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ffb703; margin-bottom: 10px; }
+        .gold-line { display: block; width: 50px; height: 3px; background: #ffb703; margin: 10px 0; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; line-height: 1.1; }
+
+        /* Features */
+        .features { display: grid; grid-template-columns: repeat(4, 1fr); padding: 3rem 5%; background: #fdfaf5; border-bottom: 2px solid #eee; }
+        .feature-item { border-right: 1px solid #ffb703; padding: 0 20px; display: flex; align-items: flex-start; gap: 15px; }
+        .feature-item:last-child { border-right: none; }
+        .feature-icon { font-size: 2.5rem; color: #2d6a4f; }
+        .feature-item strong { color: #2d6a4f; display: block; margin-bottom: 5px; }
+
+        /* Experience Section */
+        .experience-section { position: relative; padding: 5rem 5%; background: url('west-bay-beach.jpeg') center/cover; color: white; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; }
+        .experience-content { position: relative; z-index: 1; }
+        .experience-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; }
+        .exp-item i { font-size: 2rem; color: #ffb703; margin-bottom: 10px; display: block; }
+
+        /* Tours */
+        .tours-section { padding: 4rem 5%; }
+        .tours-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; }
+        .tours-header h4 { color: #ffb703; text-transform: uppercase; letter-spacing: 1px; }
+        .tours-header h2 { color: #003366; font-size: 2.5rem; }
+        .view-all { color: #2d6a4f; font-weight: bold; text-decoration: none; border-bottom: 2px solid #2d6a4f; }
+        .tour-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .tour-card { border: 1px solid #eee; border-radius: 12px; overflow: hidden; padding: 15px; }
+        .tour-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; }
+        .tour-info { padding: 15px 0; }
+
+        /* Footer */
+        footer { background: #fff; padding: 3rem 5%; color: #003366; border-top: 2px solid #eee; }
+        .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; align-items: start; }
+        .footer-logo { height: 160px; }
+        .footer-links h4, .footer-contact h4 { margin-bottom: 15px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+        .footer-links p { margin-bottom: 8px; cursor: pointer; }
+        .social-icons { display: flex; gap: 15px; margin-top: 10px; }
+        .social-icons a { color: #003366; font-size: 1.5rem; }
+        .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .whatsapp-btn { background: #25D366; color: white; padding: 2px 8px; border-radius: 4px; text-decoration: none; font-size: 0.7rem; font-weight: bold; }
+
+        @media (max-width: 900px) {
+            .menu-toggle { display: block; }
+            nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; flex-direction: column; padding: 20px; gap: 15px; }
+            nav.active { display: flex; }
+            .features, .experience-section, .tour-grid, .footer-content { grid-template-columns: 1fr; }
+
+            /* Mobile Fixes */
+            header { flex-direction: column; padding: 1rem; }
+            .header-text { font-size: 2rem; margin: 10px 0; }
+            .hero, .hero-content { align-items: center; text-align: center; }
+            .gold-line { margin: 10px auto; }
+            .experience-content { text-align: center; }
+            .experience-content .gold-line { margin: 10px auto; }
+            .footer-content { text-align: center; }
+            .footer-logo { margin: 0 auto; display: block; }
+            .social-icons { justify-content: center; }
+            .contact-item { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="first-class-logo.jpeg" class="logo" alt="Roatan First Class Tours">
+    <div class="header-text">Roatan First Class Tours</div>
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="tours.html">Packages</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="tours.html" class="book-btn">BOOK NOW</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="cursive-label">Experience Roatán</div>
+        <h1>Unforgettable Island Adventures</h1>
+        <span class="gold-line"></span>
+        <p>Premium tours. Local expertise. Memories that last a lifetime.</p>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-item">
+        <div class="feature-icon">🛡️</div>
+        <div><strong>LOCAL & TRUSTED</strong><p>100% local company with experienced guides.</p></div>
+    </div>
+    <div class="feature-item">
+        <div class="feature-icon">💎</div>
+        <div><strong>PREMIUM SERVICE</strong><p>Comfort, safety and first class service.</p></div>
+    </div>
+    <div class="feature-item">
+        <div class="feature-icon">📷</div>
+        <div><strong>UNFORGETTABLE EXPERIENCES</strong><p>Handpicked tours to show you the best of Roatán.</p></div>
+    </div>
+    <div class="feature-item">
+        <div class="feature-icon">🍃</div>
+        <div><strong>SUSTAINABLE TOURISM</strong><p>We care for our island and its future.</p></div>
+    </div>
+</section>
+
+<section class="tours-section" id="tours">
+    <div class="tours-header">
+        <div>
+            <h4>OUR MOST POPULAR TOURS</h4>
+            <h2>Discover the Best of Roatán</h2>
+            <span class="gold-line"></span>
+        </div>
+        <a href="tours.html" class="view-all">VIEW ALL TOURS ></a>
+    </div>
+    <div class="tour-grid">
+        <div class="tour-card"><img src="east-end-tour.jpg" alt="East End"><div class="tour-info"><h3>East End Tours</h3><p>Discover the untouched beauty of Roatan's East End, where pristine beaches meet lush landscapes and local culture thrives.</p></div></div>
+        <div class="tour-card"><img src="roatan-sloth.jpeg" alt="Sloth"><div class="tour-info"><h3>Monkey & Sloth</h3><p>Get up close and personal with Roatan's unique wildlife in this interactive sanctuary experience you'll never forget.</p></div></div>
+        <div class="tour-card"><img src="east-snorkel.jpg" alt="Snorkel"><div class="tour-info"><h3>Snorkel/Beach</h3><p>Dive into crystal clear waters to explore vibrant coral reefs, followed by a relaxing escape on our sun-drenched white sand beaches.</p></div></div>
+        <div class="tour-card"><img src="city-tour.jpeg" alt="Mangrove"><div class="tour-info"><h3>Island Exploration</h3><p>Explore the best of Roatan's West End, including the artisan Roatan Chocolate Factory and vibrant local shops. A colorful, cultural city tour!</p></div></div>
+    </div>
+</section>
+
+<section class="experience-section">
+    <div class="experience-content">
+        <div class="cursive-label">More than a tour,</div>
+        <h1>It's a First Class Experience</h1>
+        <span class="gold-line"></span>
+        <p>Let us show you the true beauty of Roatán. Relax, explore and enjoy – we take care of the rest.</p>
+    </div>
+    <div class="experience-grid">
+        <div class="exp-item"><i>🚐</i><strong>COMFORTABLE TRANSPORTATION</strong><p>Air-conditioned vehicles for your comfort.</p></div>
+        <div class="exp-item"><i>👥</i><strong>SMALL GROUPS</strong><p>Personalized service and more attention.</p></div>
+        <div class="exp-item"><i>⭐</i><strong>BEST PRICE GUARANTEE</strong><p>Top quality at the best value.</p></div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div><img src="first-class-logo.jpeg" class="footer-logo"></div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="about.html">About Us</a></p>
+            <p><a href="tours.html">Packages</a></p>
+            <p><a href="reviews.html">Reviews</a></p>
+            <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-links">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tripadvisor"></i></a>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <div class="contact-item"><i class="fas fa-phone"></i> (504) 9458-4225 <a href="https://wa.me/50494584225" class="whatsapp-btn">WhatsApp</a></div>
+            <div class="contact-item"><i class="fas fa-phone"></i> (504) 8787-0047</div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> info@roatanfirstclasstours.com</div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Roatán, Bay Islands, Honduras</div>
+        </div>
+    </div>
+    <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.8; text-align: center;">
+        &copy; 2026 Roatan First Class Tours. All Rights Reserved.
+    </div>
+</footer>
+
+</body>
+</html>
