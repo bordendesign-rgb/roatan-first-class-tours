@@ -33,19 +33,51 @@
         .book-btn { background: #ffb703; padding: 10px 20px; border-radius: 5px; color: #fff; font-weight: bold; }
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
 
-        /* Hero */
+        /* Hero Video Setup */
         .hero { 
-            position: relative; height: 70vh; 
-            background: url('roatan-beach.jpeg') center/cover;
-            display: flex; flex-direction: column; justify-content: center; 
-            padding: 0 5%; color: white;
+            position: relative; 
+            height: 70vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            padding: 0 5%; 
+            color: white;
+            overflow: hidden; /* Prevents video overflow */
         }
-        .hero::before, .experience-section::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, rgba(0, 51, 102, 0.7) 0%, rgba(0, 51, 102, 0.85) 100%);
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
         }
-        .hero::before { clip-path: ellipse(150% 100% at 50% 0%); }
-        .hero-content { position: relative; z-index: 1; max-width: 600px; }
+
+        /* Adjusted overlay for lower opacity & left-side text contrast */
+        .hero::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            /* Reduced overall opacity, with a slightly darker shadow on the left behind the text */
+            background: linear-gradient(90deg, rgba(0, 51, 102, 0.65) 0%, rgba(0, 51, 102, 0.25) 100%);
+            clip-path: ellipse(150% 100% at 50% 0%);
+            z-index: 1;
+        }
+
+        .hero-content { 
+            position: relative; 
+            z-index: 2; /* Keeps text above the video and overlay */
+            max-width: 600px; 
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Adds extra legibility for the text */
+        }
         
         .cursive-label { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ffb703; margin-bottom: 10px; }
         .gold-line { display: block; width: 50px; height: 3px; background: #ffb703; margin: 10px 0; }
@@ -123,6 +155,10 @@
 </header>
 
 <section class="hero">
+    <video class="hero-video" autoplay loop muted playsinline poster="roatan-beach.jpeg">
+        <source src="east-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div class="hero-content">
         <div class="cursive-label">Experience Roatán</div>
         <h1>Unforgettable Island Adventures</h1>
@@ -160,8 +196,8 @@
         <a href="tours.html" class="view-all">VIEW ALL TOURS ></a>
     </div>
     <div class="tour-grid">
-        <div class="tour-card"><img src="east-end-tour.jpg" alt="East End"><div class="tour-info"><h3>East End Tours</h3><p>Discover the untouched beauty of Roatan's East End, where pristine beaches meet lush landscapes and local culture thrives.</p></div></div>
-        <div class="tour-card"><img src="roatan-sloth.jpeg" alt="Sloth"><div class="tour-info"><h3>Monkey & Sloth</h3><p>Get up close and personal with Roatan's unique wildlife in this interactive sanctuary experience you'll never forget.</p></div></div>
+        <div class="tour-card"><img src="east-snorkel-2.jpg" alt="East End"><div class="tour-info"><h3>East End Tours</h3><p>Discover the untouched beauty of Roatan's East End, where pristine beaches meet lush landscapes and local culture thrives.</p></div></div>
+        <div class="tour-card"><img src="roatan-sloth-2.jpg" alt="Sloth"><div class="tour-info"><h3>Monkey & Sloth</h3><p>Get up close and personal with Roatan's unique wildlife in this interactive sanctuary experience you'll never forget.</p></div></div>
         <div class="tour-card"><img src="east-snorkel.jpg" alt="Snorkel"><div class="tour-info"><h3>Snorkel/Beach</h3><p>Dive into crystal clear waters to explore vibrant coral reefs, followed by a relaxing escape on our sun-drenched white sand beaches.</p></div></div>
         <div class="tour-card"><img src="city-tour.jpeg" alt="Mangrove"><div class="tour-info"><h3>Island Exploration</h3><p>Explore the best of Roatan's West End, including the artisan Roatan Chocolate Factory and vibrant local shops. A colorful, cultural city tour!</p></div></div>
     </div>
