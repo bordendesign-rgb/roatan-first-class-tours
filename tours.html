@@ -142,9 +142,9 @@
         .tour-meta { display: flex; gap: 20px; align-items: center; margin-bottom: 1.5rem; }
         .tour-price { color: #ffb703; font-weight: 700; font-size: 1.4rem; }
         .tour-features { font-size: 0.9rem; color: #666; background: #f5f5f5; padding: 4px 12px; border-radius: 20px; font-weight: 600; }
-        .tour-description { font-size: 1.05rem; line-height: 1.7; color: #555; margin-bottom: 2rem; }
+        .tour-description { font-size: 1.05rem; line-height: 1.7; color: #555; margin-bottom: 1.5rem; }
         
-        .tour-actions { display: flex; gap: 15px; align-items: center; }
+        .tour-actions { display: flex; gap: 15px; align-items: center; margin-top: 10px; }
         .details-btn { 
             background: #003366; color: #fff; padding: 12px 24px; border-radius: 6px; 
             text-decoration: none; font-weight: bold; transition: background 0.3s; 
@@ -237,43 +237,46 @@
         <p>Stay refreshed with complimentary beverages while you explore the beauty of Roatán with us.</p>
     </div>
 
+    <!-- Wild Life Encounter West -->
     <div class="tour-card">
-    <div class="tour-img-wrapper slider-2p">
-        <img src="maya-jungle.jpg" class="tour-img" alt="Mayan Jungle Animal Park">
-        <img src="san-simon.jpeg" class="tour-img" alt="San Simon Beach Club">
-    </div>
-    <div class="tour-info">
-        <h2 class="tour-title">Wild Life Encounter West</h2>
-        <div class="tour-meta">
-            <span class="tour-price">$50.00 <small>/ person</small></span>
-            <span class="tour-features"><i class="fas fa-paw"></i> Wildlife & Tasting</span>
+        <div class="tour-img-wrapper slider-2p">
+            <img src="maya-jungle.jpg" class="tour-img" alt="Mayan Jungle Animal Park">
+            <img src="san-simon.jpeg" class="tour-img" alt="San Simon Beach Club">
         </div>
-        <p class="tour-description">Experience the best of Roatán's West End! Get up close with sloths and monkeys at the wildlife sanctuary, then enjoy tasting stops at the famous local Chocolate Factory and Roatan Rum Factory.</p>
-        <div class="tour-actions">
-            <a href="contact.html?package=wildlife-west" class="details-btn">Book Package</a>
+        <div class="tour-info">
+            <h2 class="tour-title">Wild Life Encounter West</h2>
+            <div class="tour-meta">
+                <span class="tour-price">$50.00 <small>/ person</small></span>
+                <span class="tour-features"><i class="fas fa-paw"></i> Wildlife & Tasting</span>
+            </div>
+            <p class="tour-description">Experience the best of Roatán's West End! Get up close with sloths and monkeys at the wildlife sanctuary, then enjoy tasting stops at the famous local Chocolate Factory and Roatan Rum Factory.</p>
+            <div class="tour-actions">
+                <a href="contact.html?package=wildlife-west" class="details-btn">Book Package</a>
+            </div>
         </div>
     </div>
-</div>
 
+    <!-- Wild Life Encounter East -->
     <div class="tour-card">
-    <div class="tour-img-wrapper slider-3p">
-        <img src="daniel-johnson-sloth.jpg" class="tour-img" alt="Daniel Johnson's Sloth & Monkey">
-        <img src="west-snorkeling.jpg" class="tour-img" alt="Snorkeling in Roatan">
-        <img src="bradys-cay.jpeg" class="tour-img" alt="Brady's Cay">
-    </div>
-    <div class="tour-info">
-        <h2 class="tour-title">Wild Life Encounter East</h2>
-        <div class="tour-meta">
-            <span class="tour-price">$70.00 <small>/ person</small></span>
-            <span class="tour-features"><i class="fas fa-paw"></i> Wildlife & Craft Beer</span>
+        <div class="tour-img-wrapper slider-3p">
+            <img src="daniel-johnson-sloth.jpg" class="tour-img" alt="Daniel Johnson's Sloth & Monkey">
+            <img src="west-snorkeling.jpg" class="tour-img" alt="Snorkeling in Roatan">
+            <img src="bradys-cay.jpeg" class="tour-img" alt="Brady's Cay">
         </div>
-        <p class="tour-description">Explore the scenic east side of Roatán! Visit the wildlife sanctuary to get up close with friendly sloths and monkeys, indulge in sweet treats at the Chocolate Factory, and relax with locally crafted brews at Roatan Island Brewing Co.</p>
-        <div class="tour-actions">
-            <a href="contact.html?package=wildlife-east" class="details-btn">Book Package</a>
+        <div class="tour-info">
+            <h2 class="tour-title">Wild Life Encounter East</h2>
+            <div class="tour-meta">
+                <span class="tour-price">$70.00 <small>/ person</small></span>
+                <span class="tour-features"><i class="fas fa-paw"></i> Wildlife & Craft Beer</span>
+            </div>
+            <p class="tour-description">Explore the scenic east side of Roatán! Visit the wildlife sanctuary to get up close with friendly sloths and monkeys, indulge in sweet treats at the Chocolate Factory, and relax with locally crafted brews at Roatan Island Brewing Co.</p>
+            <div class="tour-actions">
+                <a href="contact.html?package=wildlife-east" class="details-btn">Book Package</a>
+            </div>
         </div>
     </div>
-</div>
 
+    <!-- Customize Your Tour -->
     <div class="tour-card">
         <div class="tour-img-wrapper slider-4p">
             <img src="west-end-roa.jpeg" class="tour-img" alt="Roatan Island Tour">
@@ -282,14 +285,105 @@
             <img src="roatan-brewing.jpg" class="tour-img" alt="Roatan Island Brewing Co">
         </div>
         <div class="tour-info">
-            <h2 class="tour-title">Island Tour</h2>
+    <h2 class="tour-title">Customize Your Tour</h2>
+    <div class="tour-meta">
+        <span class="tour-price">$40.00 – $60.00 <small>/ person</small></span>
+        <span class="tour-features"><i class="fas fa-sliders-h"></i> Custom Experience</span>
+    </div>
+    <p class="tour-description">Build your perfect island day! Select your favorite stops to create a custom itinerary. Final pricing varies ($40.00–$60.00 per person) depending on your selected combination.</p>
+    
+    <!-- Custom Options Checkboxes -->
+    <div style="margin: 15px 0; display: flex; flex-direction: column; gap: 8px;" id="custom-stops-group">
+        <label style="font-size: 0.9rem; cursor: pointer;"><input type="checkbox" value="Animal Park" style="margin-right: 6px;"> Animal Park</label>
+        <label style="font-size: 0.9rem; cursor: pointer;"><input type="checkbox" value="Rum Company" style="margin-right: 6px;"> Rum Company</label>
+        <label style="font-size: 0.9rem; cursor: pointer;"><input type="checkbox" value="Chocolate Factory" style="margin-right: 6px;"> Chocolate Factory</label>
+        <label style="font-size: 0.9rem; cursor: pointer;"><input type="checkbox" value="Brewery" style="margin-right: 6px;"> Brewery</label>
+        <label style="font-size: 0.9rem; cursor: pointer;"><input type="checkbox" value="Sightseeing" style="margin-right: 6px;"> Sightseeing</label>
+    </div>
+
+    <div class="tour-actions">
+        <a href="contact.html?package=custom" class="details-btn" id="custom-book-btn">Book Package</a>
+    </div>
+</div>
+
+<script>
+    // Dynamically updates the booking link with checked custom options
+    const customGroup = document.getElementById('custom-stops-group');
+    const customBookBtn = document.getElementById('custom-book-btn');
+
+    if (customGroup && customBookBtn) {
+        customGroup.addEventListener('change', () => {
+            const checkedBoxes = customGroup.querySelectorAll('input[type="checkbox"]:checked');
+            const selectedValues = Array.from(checkedBoxes).map(cb => encodeURIComponent(cb.value));
+            
+            if (selectedValues.length > 0) {
+                customBookBtn.href = `contact.html?package=custom&options=${selectedValues.join(',')}`;
+            } else {
+                customBookBtn.href = 'contact.html?package=custom';
+            }
+        });
+    }
+</script>
+
+    <!-- San Simon Beach Club -->
+    <div class="tour-card">
+        <div class="tour-img-wrapper slider-4p">
+            <img src="roatan-beach.jpeg" class="tour-img" alt="Roatan Beach">
+            <img src="san-simon.jpeg" class="tour-img" alt="San Simon Beach Club">
+            <img src="san-simon-2.jpg" class="tour-img" alt="San Simon Beach Club Lounge">
+            <img src="san-simon-3.jpg" class="tour-img" alt="San Simon Beach Club Views">
+        </div>
+        <div class="tour-info">
+            <h2 class="tour-title">Embrace A Full Day At San Simon Beach Club</h2>
             <div class="tour-meta">
-                <span class="tour-price">$55 <small>/ person</small></span>
-                <span class="tour-features"><i class="fas fa-beer"></i> Culture & Tastes</span>
+                <span class="tour-price">$50.00 <small>/ person</small></span>
+                <span class="tour-features"><i class="fas fa-umbrella-beach"></i> Beach Club & Relaxation</span>
             </div>
-            <p class="tour-description">Savor the authentic flavors and scenery of Roatán. This sightseeing journey includes local stops at the famous Roatan Rum Factory, a sweet experience at the artisan Chocolate Factory, and a refreshing break at the popular Roatan Island Brewing Co. to taste handcrafted local craft beers.</p>
+            <p class="tour-description">Escape to West Bay Beach for the ultimate sun and sand experience at San Simon Beach Club! Lounge in comfort, swim in crystal-clear turquoise waters, and enjoy a premier beachfront getaway.</p>
             <div class="tour-actions">
-                <a href="contact.html?package=island" class="details-btn">Book Package</a>
+                <a href="contact.html?package=san-simon-beach" class="details-btn">Book Package</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Infinity Bay -->
+    <div class="tour-card">
+        <div class="tour-img-wrapper slider-4p">
+            <img src="Infinity-bay-1.jpg" class="tour-img" alt="Infinity Bay Resort">
+            <img src="Infinity-bay-2.jpg" class="tour-img" alt="Infinity Bay Beach Area">
+            <img src="Infinity-bay-3.jpg" class="tour-img" alt="Infinity Bay Pool">
+            <img src="Infinity-bay-4.jpg" class="tour-img" alt="Infinity Bay Ocean View">
+        </div>
+        <div class="tour-info">
+            <h2 class="tour-title">Embrace A Full Day At Infinity Bay</h2>
+            <div class="tour-meta">
+                <span class="tour-price">$50.00 <small>/ person</small></span>
+                <span class="tour-features"><i class="fas fa-umbrella-beach"></i> Luxury Beach & Resort</span>
+            </div>
+            <p class="tour-description">Indulge in a luxurious day pass at Infinity Bay Spa & Beach Resort! Unwind along world-famous West Bay Beach, swim in the iconic infinity pool, and experience top-tier tropical relaxation.</p>
+            <div class="tour-actions">
+                <a href="contact.html?package=infinity-bay" class="details-btn">Book Package</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anthony's Key Horseback Riding -->
+    <div class="tour-card">
+        <div class="tour-img-wrapper slider-4p">
+            <img src="horse-back-roatan.jpeg" class="tour-img" alt="Horseback Riding in Roatan">
+            <img src="anthony's-key-1.jpeg" class="tour-img" alt="Anthony's Key Resort Area">
+            <img src="horse-back-roatan-2.jpg" class="tour-img" alt="Beach Horseback Riding">
+            <img src="anthony's-key-2.jpg" class="tour-img" alt="Anthony's Key Views">
+        </div>
+        <div class="tour-info">
+            <h2 class="tour-title">Anthony's Key Horseback Riding</h2>
+            <div class="tour-meta">
+                <span class="tour-price">$60.00 <small>/ person</small></span>
+                <span class="tour-features"><i class="fas fa-horse"></i> Equestrian & Scenic Views</span>
+            </div>
+            <p class="tour-description">Embark on a guided horseback riding adventure around the beautiful landscapes of Anthony's Key! Trot along scenic trails, take in stunning ocean vistas, and experience a unique way to explore Roatán.</p>
+            <div class="tour-actions">
+                <a href="contact.html?package=anthonys-key-horseback" class="details-btn">Book Package</a>
             </div>
         </div>
     </div>
