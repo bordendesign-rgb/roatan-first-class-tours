@@ -403,6 +403,9 @@
                     <textarea id="user-message" name="message" rows="6" placeholder="Tell us about your group size, cruise ship arrival times, or custom requests..." required></textarea>
                 </div>
 
+                <!-- Hardcoded hidden field for Netlify parser to guarantee email tracking -->
+                <input type="hidden" name="Selected Add-ons" value="None selected">
+
                 <button type="submit" class="form-submit-btn">Send Message</button>
             </form>
         </div>
@@ -535,20 +538,16 @@
             });
         }
 
-        // Intercept form submission to bundle checkboxes into a clean hidden field for Netlify email
+        // Intercept form submission to populate the hardcoded hidden input with selected values
         if (contactForm) {
             contactForm.addEventListener('submit', () => {
                 const checkedBoxes = addonsContainer.querySelectorAll('input[name="addon_item"]:checked');
                 const selectedValues = Array.from(checkedBoxes).map(cb => cb.value);
 
-                const existingHidden = contactForm.querySelector('input[name="Selected Add-ons"]');
-                if (existingHidden) existingHidden.remove();
-
-                const hiddenInput = document.createElement('input');
-                hiddenInput.type = 'hidden';
-                hiddenInput.name = 'Selected Add-ons';
-                hiddenInput.value = selectedValues.length > 0 ? selectedValues.join(', ') : 'None selected';
-                contactForm.appendChild(hiddenInput);
+                const hiddenInput = contactForm.querySelector('input[name="Selected Add-ons"]');
+                if (hiddenInput) {
+                    hiddenInput.value = selectedValues.length > 0 ? selectedValues.join(', ') : 'None selected';
+                }
             });
         }
     });
