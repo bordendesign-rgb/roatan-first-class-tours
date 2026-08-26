@@ -453,12 +453,14 @@
         &copy; 2026 Roatan First Class Tours. All Rights Reserved.
     </div>
 </footer>
+
 <script>
     window.addEventListener('DOMContentLoaded', () => {
         const selectBox = document.getElementById('package-select');
         const addonsGroup = document.getElementById('addons-field-group');
         const addonsContainer = document.getElementById('addons-container');
         const addonsLabel = document.getElementById('addons-label');
+        const contactForm = document.querySelector('.main-contact-form');
 
         const packageAddons = {
             'wildlife-west': [
@@ -506,7 +508,7 @@
                 packageAddons[selectedPkg].forEach(opt => {
                     const isChecked = preselectedOptions.some(o => o.toLowerCase() === opt.name.toLowerCase());
                     const labelElem = document.createElement('label');
-                    labelElem.innerHTML = `<input type="checkbox" name="addons" value="${opt.name}" ${isChecked ? 'checked' : ''}> ${opt.label}`;
+                    labelElem.innerHTML = `<input type="checkbox" name="addon_item" value="${opt.name}" ${isChecked ? 'checked' : ''}> ${opt.label}`;
                     addonsContainer.appendChild(labelElem);
                 });
             } else {
@@ -518,7 +520,6 @@
             const urlParams = new URLSearchParams(window.location.search);
             let selectedPackage = urlParams.get('package');
             
-            // Legacy query param mapping fallback
             if (selectedPackage === 'san-simon') selectedPackage = 'san-simon-beach';
 
             const optionsParam = urlParams.get('options');
@@ -531,6 +532,23 @@
 
             selectBox.addEventListener('change', (e) => {
                 updateAddons(e.target.value);
+            });
+        }
+
+        // Intercept form submission to bundle checkboxes into a clean hidden field for Netlify email
+        if (contactForm) {
+            contactForm.addEventListener('submit', () => {
+                const checkedBoxes = addonsContainer.querySelectorAll('input[name="addon_item"]:checked');
+                const selectedValues = Array.from(checkedBoxes).map(cb => cb.value);
+
+                const existingHidden = contactForm.querySelector('input[name="Selected Add-ons"]');
+                if (existingHidden) existingHidden.remove();
+
+                const hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'Selected Add-ons';
+                hiddenInput.value = selectedValues.length > 0 ? selectedValues.join(', ') : 'None selected';
+                contactForm.appendChild(hiddenInput);
             });
         }
     });
