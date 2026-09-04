@@ -293,7 +293,6 @@
 
     <div class="contact-grid">
         
-        <!-- Left Column: Business Details -->
         <div class="contact-info-panel">
             <h3>First-Class Service</h3>
             <p>Whether you want to lock down one of our signature curated packages or plan a unique custom route across Roatán, our coordinators are here to organize every detail.</p>
@@ -326,7 +325,6 @@
             </div>
         </div>
 
-        <!-- Right Column: Inquiry Form -->
         <div class="contact-form-card">
             <form class="main-contact-form" name="contact" method="POST" data-netlify="true">
                 
@@ -390,6 +388,7 @@
                         <option value="" disabled selected>Select a Tour Package</option>
                         <option value="wildlife-west">Wild Life Encounter West - $50.00 / person</option>
                         <option value="wildlife-east">Wild Life Encounter East - $70.00 / person</option>
+                        <option value="full-east-end">Full East End Tour - $700.00 - $1,200.00</option>
                         <option value="custom">Customize Your Tour - $40.00 - $60.00 / person</option>
                         <option value="san-simon-beach">Embrace A Full Day At San Simon Beach Club - $50.00 / person</option>
                         <option value="infinity-bay">Embrace A Full Day At Infinity Bay - $50.00 / person</option>
@@ -398,12 +397,10 @@
                     </select>
                 </div>
 
-                <!-- Dynamic Addons Field Container -->
                 <div class="form-field span-2" id="addons-field-group" style="display: none;">
                     <label id="addons-label">Select Optional Add-ons</label>
                     <div id="addons-container" class="addons-container">
-                        <!-- Dynamic Checkboxes Inserted Via JS -->
-                    </div>
+                        </div>
                 </div>
 
                 <div class="form-field span-2">
@@ -411,7 +408,6 @@
                     <textarea id="user-message" name="message" rows="6" placeholder="Tell us about your group size, cruise ship arrival times, or custom requests..." required></textarea>
                 </div>
 
-                <!-- Hardcoded hidden field for Netlify parser to guarantee email tracking -->
                 <input type="hidden" name="Selected Add-ons" value="None selected">
 
                 <button type="submit" class="form-submit-btn">Send Message</button>
@@ -422,11 +418,10 @@
 
 </main>
 
-<!-- Interactive Map Container above Footer -->
 <section class="map-section">
     <iframe 
         class="map-wrapper"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244971.9566144865!2d-86.51613143324683!3d16.3640242250106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f69e66ffab7e297%3A0xc3cf0fec4bf66dd2!2sRoatan!5e0!3m2!1sen!2shn!4v1710000000000!5m2!1sen!2shn" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7909569733076!2d-86.4719!3d16.3833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f64f842f10b75d7%3A0xc39f99e32f7a9!2sFrench%20Harbour%2C%20Roatan!5e0!3m2!1sen!2shn!4v1710000000000!5m2!1sen!2shn" 
         allowfullscreen="" 
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade">
@@ -461,7 +456,7 @@
         </div>
     </div>
     <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.8; text-align: center;">
-        &copy; 2026 Roatan First Class Tours. All Rights Reserved.
+        © 2026 Roatan First Class Tours. All Rights Reserved.
     </div>
 </footer>
 
