@@ -273,7 +273,7 @@
             </div>
             <p class="tour-description">Discover local favorites on this West End excursion! Spend time at the animal sanctuary interacting with exotic wildlife, followed by sweet and tropical tastings at the local Chocolate Factory and Roatan Rum Company.</p>
             <div class="tour-actions">
-                <a href="contact.html?package=wildlife-west" class="details-btn">Book Package</a>
+                <a href="contact.html?package=animal-sanctuary-rum" class="details-btn">Book Package</a>
             </div>
         </div>
     </div>
@@ -307,7 +307,7 @@
                 <a href="contact.html?package=custom" class="details-btn" id="custom-book-btn">Book Package</a>
             </div>
         </div>
-    </div> <!-- Fixed: Closed .tour-card properly here -->
+    </div>
 
     <!-- Animal Sanctuary, Roatan Brewing Company, Sightseeing -->
     <div class="tour-card">
@@ -325,33 +325,10 @@
             </div>
             <p class="tour-description">Explore the scenic landscapes of Roatán! Visit the animal sanctuary to interact with local wildlife, enjoy a guided sightseeing adventure across the island, and unwind with refreshing local drinks at the Roatan Brewing Company.</p>
             <div class="tour-actions">
-                <a href="contact.html?package=wildlife-east" class="details-btn">Book Package</a>
+                <a href="contact.html?package=animal-sanctuary-brewing" class="details-btn">Book Package</a>
             </div>
         </div>
     </div>
-
-<script>
-    // Dynamically updates the booking link with checked custom options
-    const customGroup = document.getElementById('custom-stops-group');
-    const customBookBtn = document.getElementById('custom-book-btn');
-
-    if (customGroup && customBookBtn) {
-        function updateCustomLink() {
-            const checkedBoxes = customGroup.querySelectorAll('input[type="checkbox"]:checked');
-            const selectedValues = Array.from(checkedBoxes).map(cb => encodeURIComponent(cb.value));
-            
-            if (selectedValues.length > 0) {
-                customBookBtn.href = `contact.html?package=custom&options=${selectedValues.join(',')}`;
-            } else {
-                customBookBtn.href = `contact.html?package=custom`;
-            }
-        }
-
-        customGroup.addEventListener('change', updateCustomLink);
-        // Run on load just in case
-        updateCustomLink();
-    }
-</script>
 
     <!-- San Simon Beach Club -->
     <div class="tour-card">
@@ -459,25 +436,25 @@
     </div>
 
     <!-- Animal Sanctuary, Snorkeling, Brady's Cay -->
-        <div class="tour-card">
-            <div class="tour-img-wrapper slider-4p">
-                <img src="bradys-cay.jpeg" class="tour-img" alt="Brady's Cay Beach and Waters">
-                <img src="bradys-cay-2.jpg" class="tour-img" alt="Brady's Cay Scenic Views">
-                <img src="bradys-cay-3.jpg" class="tour-img" alt="Brady's Cay Island Experience">
-                <img src="bradys-cay-4.jpg" class="tour-img" alt="Brady's Cay Relaxation">
+    <div class="tour-card">
+        <div class="tour-img-wrapper slider-4p">
+            <img src="bradys-cay.jpeg" class="tour-img" alt="Brady's Cay Beach and Waters">
+            <img src="bradys-cay-2.jpg" class="tour-img" alt="Brady's Cay Scenic Views">
+            <img src="bradys-cay-3.jpg" class="tour-img" alt="Brady's Cay Island Experience">
+            <img src="bradys-cay-4.jpg" class="tour-img" alt="Brady's Cay Relaxation">
+        </div>
+        <div class="tour-info">
+            <h2 class="tour-title">Animal Sanctuary, Snorkeling, Brady's Cay</h2>
+            <div class="tour-meta">
+                <span class="tour-price">$85.00 <small>/ person</small></span>
+                <span class="tour-features"><i class="fas fa-water"></i> Wildlife & Private Cay</span>
             </div>
-            <div class="tour-info">
-                <h2 class="tour-title">Animal Sanctuary, Snorkeling, Brady's Cay</h2>
-                <div class="tour-meta">
-                    <span class="tour-price">$85.00 <small>/ person</small></span>
-                    <span class="tour-features"><i class="fas fa-water"></i> Wildlife & Private Cay</span>
-                </div>
-                <p class="tour-description">Experience the ultimate Roatán adventure! Get up close with local wildlife at the animal sanctuary, explore vibrant coral reefs on an unforgettable snorkeling excursion, and unwind in the tropical paradise of Brady's Cay.</p>
-                <div class="tour-actions">
-                    <a href="contact.html?package=bradys-cay" class="details-btn">Book Package</a>
-                </div>
+            <p class="tour-description">Experience the ultimate Roatán adventure! Get up close with local wildlife at the animal sanctuary, explore vibrant coral reefs on an unforgettable snorkeling excursion, and unwind in the tropical paradise of Brady's Cay.</p>
+            <div class="tour-actions">
+                <a href="contact.html?package=bradys-cay" class="details-btn">Book Package</a>
             </div>
         </div>
+    </div>
 
 </main>
 
@@ -506,12 +483,12 @@
         <div class="footer-links">
             <h4>Follow Us</h4>
             <div class="social-icons">
-    <a href="https://www.facebook.com/profile.php?id=61594022260957&mibextid=wwXIfr&rdid=8MB9uOYlswleNaL7&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19hNPR3f7g%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/roatanfirstclass_tours/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tripadvisor.com/Attraction_Review-g292019-d34668708-Reviews-Roatan_First_Class_Tours-Roatan_Bay_Islands.html" target="_blank" rel="noopener noreferrer">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tripadvisor.svg" alt="TripAdvisor" style="width: 20px; height: 20px; filter: invert(13%) sepia(49%) saturate(4530%) hue-rotate(195deg) brightness(92%) contrast(102%); vertical-align: middle;">
-    </a>
-</div>
+                <a href="https://www.facebook.com/profile.php?id=61594022260957&mibextid=wwXIfr&rdid=8MB9uOYlswleNaL7&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19hNPR3f7g%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/roatanfirstclass_tours/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tripadvisor.com/Attraction_Review-g292019-d34668708-Reviews-Roatan_First_Class_Tours-Roatan_Bay_Islands.html" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tripadvisor.svg" alt="TripAdvisor" style="width: 20px; height: 20px; filter: invert(13%) sepia(49%) saturate(4530%) hue-rotate(195deg) brightness(92%) contrast(102%); vertical-align: middle;">
+                </a>
+            </div>
         </div>
         <div class="footer-contact">
             <h4>Contact Us</h4>
@@ -525,6 +502,29 @@
         &copy; 2026 Roatan First Class Tours. All Rights Reserved.
     </div>
 </footer>
+
+<script>
+    // Dynamically updates the booking link with checked custom options
+    const customGroup = document.getElementById('custom-stops-group');
+    const customBookBtn = document.getElementById('custom-book-btn');
+
+    if (customGroup && customBookBtn) {
+        function updateCustomLink() {
+            const checkedBoxes = customGroup.querySelectorAll('input[type="checkbox"]:checked');
+            const selectedValues = Array.from(checkedBoxes).map(cb => encodeURIComponent(cb.value));
+            
+            if (selectedValues.length > 0) {
+                customBookBtn.href = `contact.html?package=custom&options=${selectedValues.join(',')}`;
+            } else {
+                customBookBtn.href = `contact.html?package=custom`;
+            }
+        }
+
+        customGroup.addEventListener('change', updateCustomLink);
+        // Run on load just in case
+        updateCustomLink();
+    }
+</script>
 
 </body>
 </html>
