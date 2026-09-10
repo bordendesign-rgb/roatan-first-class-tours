@@ -548,36 +548,40 @@
         }
 
         if (contactForm) {
-            // Add hidden inputs dynamically so Netlify grabs the priced labels instead of backend keys
-            if (!contactForm.querySelector('input[name="Selected Package"]')) {
-                const pkgInput = document.createElement('input');
-                pkgInput.type = 'hidden';
-                pkgInput.name = 'Selected Package';
-                contactForm.appendChild(pkgInput);
-            }
-            if (!contactForm.querySelector('input[name="Selected Add-ons"]')) {
-                const addInput = document.createElement('input');
-                addInput.type = 'hidden';
-                addInput.name = 'Selected Add-ons';
-                contactForm.appendChild(addInput);
+            // Create hidden inputs for Netlify to capture the full names and prices
+            let pkgHidden = contactForm.querySelector('input[name="Selected Package"]');
+            if (!pkgHidden) {
+                pkgHidden = document.createElement('input');
+                pkgHidden.type = 'hidden';
+                pkgHidden.name = 'Selected Package';
+                contactForm.appendChild(pkgHidden);
             }
 
-            contactForm.addEventListener('submit', () => {
-                // Grab the text of the selected package option (which includes its price)
+            let addHidden = contactForm.querySelector('input[name="Selected Add-ons"]');
+            if (!addHidden) {
+                addHidden = document.createElement('input');
+                addHidden.type = 'hidden';
+                addHidden.name = 'Selected Add-ons';
+                contactForm.appendChild(addHidden);
+            }
+
+            const updateSubmissionValues = () => {
                 const selectedOption = selectBox.options[selectBox.selectedIndex];
-                const pkgHidden = contactForm.querySelector('input[name="Selected Package"]');
-                if (pkgHidden && selectedOption) {
+                if (selectedOption && selectBox.value) {
                     pkgHidden.value = selectedOption.text;
+                } else {
+                    pkgHidden.value = 'General Inquiry / None selected';
                 }
 
-                // Grab the text of the checked add-ons (which includes their prices)
                 const checkedBoxes = addonsContainer.querySelectorAll('input[name="addon_item"]:checked');
                 const selectedLabels = Array.from(checkedBoxes).map(cb => cb.value);
+                addHidden.value = selectedLabels.length > 0 ? selectedLabels.join(' | ') : 'None selected';
+            };
 
-                const addHidden = contactForm.querySelector('input[name="Selected Add-ons"]');
-                if (addHidden) {
-                    addHidden.value = selectedLabels.length > 0 ? selectedLabels.join(' | ') : 'None selected';
-                }
+            selectBox.addEventListener('change', updateSubmissionValues);
+
+            contactForm.addEventListener('submit', () => {
+                updateSubmissionValues();
             });
         }
     });
