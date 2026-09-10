@@ -387,8 +387,8 @@
                     <select name="tour_package" id="package-select" required>
                         <option value="" disabled selected>Select an Option / General Inquiry</option>
                         <option value="general-inquiry">General Inquiry / Not Booking a Specific Tour</option>
-                        <option value="wildlife-west">Animal Sanctuary, Rum Company, Chocolate Factory - $55.00 / person</option>
-                        <option value="wildlife-east">Animal Sanctuary, Roatan Brewing Company, Sightseeing - $70.00 / person</option>
+                        <option value="animal-sanctuary-rum">Animal Sanctuary, Rum Company, Chocolate Factory - $55.00 / person</option>
+                        <option value="animal-sanctuary-brewing">Animal Sanctuary, Roatan Brewing Company, Sightseeing - $70.00 / person</option>
                         <option value="full-east-end">Full East End Tour - $700.00 - $1,200.00</option>
                         <option value="custom">Customize Your Tour - $40.00 - $60.00 / person</option>
                         <option value="san-simon-beach">Embrace A Full Day At San Simon Beach Club - $50.00 / person</option>
@@ -475,11 +475,11 @@
         const contactForm = document.querySelector('.main-contact-form');
 
         const packageAddons = {
-            'wildlife-west': [
+            'animal-sanctuary-rum': [
                 { name: 'Zipline', label: 'Zipline ($45.00 / person)' },
                 { name: 'ATV', label: 'ATV ($70.00 / person)' }
             ],
-            'wildlife-east': [
+            'animal-sanctuary-brewing': [
                 { name: 'Zipline', label: 'Zipline ($70.00 / person)' },
                 { name: 'Iguana Farm', label: 'Iguana Farm ($15.00 / person)' }
             ],
