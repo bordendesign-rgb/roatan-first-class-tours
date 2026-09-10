@@ -396,6 +396,7 @@
                         <option value="anthonys-key-horseback">Anthony's Key Horseback Riding - $60.00 / person</option>
                         <option value="little-french-key">Escape To Little French Key - $90.00 / person</option>
                         <option value="snorkeling-sanctuary-west-bay">Snorkeling, Animal Sanctuary & West Bay Beach - $80.00 / person</option>
+                        <option value="bradys-cay">Animal Sanctuary, Snorkeling, Brady's Cay - $85.00 / person</option>
                         <option value="personalized">Design Your Custom Adventure (Personalized)</option>
                     </select>
                 </div>
@@ -519,7 +520,7 @@
                 packageAddons[selectedPkg].forEach(opt => {
                     const isChecked = preselectedOptions.some(o => o.toLowerCase() === opt.name.toLowerCase());
                     const labelElem = document.createElement('label');
-                    labelElem.innerHTML = `<input type="checkbox" name="addon_item" value="${opt.name}" ${isChecked ? 'checked' : ''}> ${opt.label}`;
+                    labelElem.innerHTML = `<input type="checkbox" name="addon_item" value="${opt.label}" ${isChecked ? 'checked' : ''}> ${opt.label}`;
                     addonsContainer.appendChild(labelElem);
                 });
             } else {
@@ -547,13 +548,35 @@
         }
 
         if (contactForm) {
-            contactForm.addEventListener('submit', () => {
-                const checkedBoxes = addonsContainer.querySelectorAll('input[name="addon_item"]:checked');
-                const selectedValues = Array.from(checkedBoxes).map(cb => cb.value);
+            // Add hidden inputs dynamically so Netlify grabs the priced labels instead of backend keys
+            if (!contactForm.querySelector('input[name="Selected Package"]')) {
+                const pkgInput = document.createElement('input');
+                pkgInput.type = 'hidden';
+                pkgInput.name = 'Selected Package';
+                contactForm.appendChild(pkgInput);
+            }
+            if (!contactForm.querySelector('input[name="Selected Add-ons"]')) {
+                const addInput = document.createElement('input');
+                addInput.type = 'hidden';
+                addInput.name = 'Selected Add-ons';
+                contactForm.appendChild(addInput);
+            }
 
-                const hiddenInput = contactForm.querySelector('input[name="Selected Add-ons"]');
-                if (hiddenInput) {
-                    hiddenInput.value = selectedValues.length > 0 ? selectedValues.join(', ') : 'None selected';
+            contactForm.addEventListener('submit', () => {
+                // Grab the text of the selected package option (which includes its price)
+                const selectedOption = selectBox.options[selectBox.selectedIndex];
+                const pkgHidden = contactForm.querySelector('input[name="Selected Package"]');
+                if (pkgHidden && selectedOption) {
+                    pkgHidden.value = selectedOption.text;
+                }
+
+                // Grab the text of the checked add-ons (which includes their prices)
+                const checkedBoxes = addonsContainer.querySelectorAll('input[name="addon_item"]:checked');
+                const selectedLabels = Array.from(checkedBoxes).map(cb => cb.value);
+
+                const addHidden = contactForm.querySelector('input[name="Selected Add-ons"]');
+                if (addHidden) {
+                    addHidden.value = selectedLabels.length > 0 ? selectedLabels.join(' | ') : 'None selected';
                 }
             });
         }
