@@ -403,8 +403,7 @@
 
                 <div class="form-field span-2" id="addons-field-group" style="display: none;">
                     <label id="addons-label">Select Optional Add-ons</label>
-                    <div id="addons-container" class="addons-container">
-                        </div>
+                    <div id="addons-container" class="addons-container"></div>
                 </div>
 
                 <div class="form-field span-2">
@@ -412,7 +411,7 @@
                     <textarea id="user-message" name="message" rows="6" placeholder="Tell us about your group size, cruise ship arrival times, or custom requests..." required></textarea>
                 </div>
 
-                <input type="hidden" name="Selected Add-ons" value="None selected">
+                <input type="hidden" id="selected-addons-input" name="Selected Add-ons" value="None selected">
 
                 <button type="submit" class="form-submit-btn">Send Message</button>
             </form>
@@ -446,12 +445,12 @@
         <div class="footer-links">
             <h4>Follow Us</h4>
             <div class="social-icons">
-    <a href="https://www.facebook.com/profile.php?id=61594022260957&mibextid=wwXIfr&rdid=8MB9uOYlswleNaL7&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19hNPR3f7g%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/roatanfirstclass_tours/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tripadvisor.com/Attraction_Review-g292019-d34668708-Reviews-Roatan_First_Class_Tours-Roatan_Bay_Islands.html" target="_blank" rel="noopener noreferrer">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tripadvisor.svg" alt="TripAdvisor" style="width: 20px; height: 20px; filter: invert(13%) sepia(49%) saturate(4530%) hue-rotate(195deg) brightness(92%) contrast(102%); vertical-align: middle;">
-    </a>
-</div>
+                <a href="https://www.facebook.com/profile.php?id=61594022260957&mibextid=wwXIfr&rdid=8MB9uOYlswleNaL7&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19hNPR3f7g%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/roatanfirstclass_tours/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tripadvisor.com/Attraction_Review-g292019-d34668708-Reviews-Roatan_First_Class_Tours-Roatan_Bay_Islands.html" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tripadvisor.svg" alt="TripAdvisor" style="width: 20px; height: 20px; filter: invert(13%) sepia(49%) saturate(4530%) hue-rotate(195deg) brightness(92%) contrast(102%); vertical-align: middle;">
+                </a>
+            </div>
         </div>
         <div class="footer-contact">
             <h4>Contact Us</h4>
@@ -467,12 +466,13 @@
 </footer>
 
 <script>
-    window.addEventListener('DOMContentLoaded', () => {
+    function initContactForm() {
         const selectBox = document.getElementById('package-select');
         const addonsGroup = document.getElementById('addons-field-group');
         const addonsContainer = document.getElementById('addons-container');
-        const addonsLabel = document.getElementById('addons-label');
-        const contactForm = document.querySelector('.main-contact-form');
+        const hiddenAddonsInput = document.getElementById('selected-addons-input');
+
+        if (!selectBox) return;
 
         const packageAddons = {
             'animal-sanctuary-rum': [
@@ -523,8 +523,7 @@
             ]
         };
 
-        selectBox.addEventListener('change', function() {
-            const selectedVal = this.value;
+        function updateAddons(selectedVal) {
             addonsContainer.innerHTML = '';
 
             if (packageAddons[selectedVal] && packageAddons[selectedVal].length > 0) {
@@ -533,18 +532,51 @@
                     const div = document.createElement('div');
                     div.className = 'addon-checkbox-item';
                     div.innerHTML = `
-                        <label>
+                        <label style="font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 8px;">
                             <input type="checkbox" name="addons[]" value="${addon.name}">
                             ${addon.label}
                         </label>
                     `;
                     addonsContainer.appendChild(div);
                 });
+
+                addonsContainer.querySelectorAll('input[type="checkbox"]').forEach(chk => {
+                    chk.addEventListener('change', updateHiddenAddons);
+                });
             } else {
                 addonsGroup.style.display = 'none';
             }
+            hiddenAddonsInput.value = 'None selected';
+        }
+
+        function updateHiddenAddons() {
+            const checkedBoxes = addonsContainer.querySelectorAll('input[type="checkbox"]:checked');
+            if (checkedBoxes.length > 0) {
+                const values = Array.from(checkedBoxes).map(cb => cb.value);
+                hiddenAddonsInput.value = values.join(', ');
+            } else {
+                hiddenAddonsInput.value = 'None selected';
+            }
+        }
+
+        selectBox.addEventListener('change', function() {
+            updateAddons(this.value);
         });
-    });
+
+        // Check URL parameters on page load to pre-select package if coming from tours.html
+        const urlParams = new URLSearchParams(window.location.search);
+        const packageParam = urlParams.get('package');
+        if (packageParam && selectBox.querySelector(`option[value="${packageParam}"]`)) {
+            selectBox.value = packageParam;
+            updateAddons(packageParam);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initContactForm);
+    } else {
+        initContactForm();
+    }
 </script>
 
 </body>
