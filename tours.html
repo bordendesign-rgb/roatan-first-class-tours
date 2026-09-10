@@ -336,16 +336,20 @@
     const customBookBtn = document.getElementById('custom-book-btn');
 
     if (customGroup && customBookBtn) {
-        customGroup.addEventListener('change', () => {
+        function updateCustomLink() {
             const checkedBoxes = customGroup.querySelectorAll('input[type="checkbox"]:checked');
             const selectedValues = Array.from(checkedBoxes).map(cb => encodeURIComponent(cb.value));
             
             if (selectedValues.length > 0) {
                 customBookBtn.href = `contact.html?package=custom&options=${selectedValues.join(',')}`;
             } else {
-                customBookBtn.href = 'contact.html?package=custom';
+                customBookBtn.href = `contact.html?package=custom`;
             }
-        });
+        }
+
+        customGroup.addEventListener('change', updateCustomLink);
+        // Run on load just in case
+        updateCustomLink();
     }
 </script>
 
