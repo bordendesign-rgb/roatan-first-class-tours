@@ -483,6 +483,10 @@
                 { name: 'Zipline', label: 'Zipline ($70.00 / person)' },
                 { name: 'Iguana Farm', label: 'Iguana Farm ($15.00 / person)' }
             ],
+            'full-east-end': [
+                { name: 'Snorkeling', label: 'Snorkeling ($20.00 / person)' },
+                { name: 'Beach Time', label: 'Beach Time ($15.00 / person)' }
+            ],
             'custom': [
                 { name: 'Animal Park', label: 'Animal Park' },
                 { name: 'Rum Company', label: 'Rum Company' },
@@ -499,91 +503,47 @@
             ],
             'infinity-bay': [
                 { name: 'Snorkeling', label: 'Snorkeling ($20.00 / person)' },
-                { name: 'Banana Boat', label: 'Banana Boat ($30.00 / person)' },
-                { name: 'Jet Ski (1 Hour)', label: 'Jet Ski ($100.00 / hour)' },
-                { name: 'Jet Ski (30 Mins)', label: 'Jet Ski ($80.00 / 30 mins)' },
-                { name: 'Glass Bottom Boat', label: 'Glass Bottom Boat ($45.00 / person)' }
+                { name: 'Parasailing', label: 'Parasailing ($75.00 / person)' }
             ],
             'anthonys-key-horseback': [
-                { name: 'Animal Park', label: 'Animal Park ($20.00 / person)' },
-                { name: 'Beach', label: 'Beach Stop ($30.00 / person)' }
+                { name: 'Snorkeling', label: 'Snorkeling ($20.00 / person)' }
+            ],
+            'little-french-key': [
+                { name: 'Snorkeling', label: 'Snorkeling ($20.00 / person)' },
+                { name: 'Jet Ski', label: 'Jet Ski ($100.00 / hour)' }
+            ],
+            'snorkeling-sanctuary-west-bay': [
+                { name: 'Parasailing', label: 'Parasailing ($75.00 / person)' }
+            ],
+            'bradys-cay': [
+                { name: 'Jet Ski', label: 'Jet Ski ($100.00 / hour)' }
+            ],
+            'personalized': [
+                { name: 'Special Request Addon', label: 'Custom Addon' }
             ]
         };
 
-        function updateAddons(selectedPkg, preselectedOptions = []) {
+        selectBox.addEventListener('change', function() {
+            const selectedVal = this.value;
             addonsContainer.innerHTML = '';
-            
-            if (packageAddons[selectedPkg]) {
-                addonsGroup.style.display = 'flex';
-                addonsLabel.textContent = selectedPkg === 'custom' ? 'Selected Stops / Options' : 'Select Optional Add-ons';
 
-                packageAddons[selectedPkg].forEach(opt => {
-                    const isChecked = preselectedOptions.some(o => o.toLowerCase() === opt.name.toLowerCase());
-                    const labelElem = document.createElement('label');
-                    labelElem.innerHTML = `<input type="checkbox" name="addon_item" value="${opt.label}" ${isChecked ? 'checked' : ''}> ${opt.label}`;
-                    addonsContainer.appendChild(labelElem);
+            if (packageAddons[selectedVal] && packageAddons[selectedVal].length > 0) {
+                addonsGroup.style.display = 'block';
+                packageAddons[selectedVal].forEach(addon => {
+                    const div = document.createElement('div');
+                    div.className = 'addon-checkbox-item';
+                    div.innerHTML = `
+                        <label>
+                            <input type="checkbox" name="addons[]" value="${addon.name}">
+                            ${addon.label}
+                        </label>
+                    `;
+                    addonsContainer.appendChild(div);
                 });
             } else {
                 addonsGroup.style.display = 'none';
             }
-        }
-
-        if (selectBox) {
-            const urlParams = new URLSearchParams(window.location.search);
-            let selectedPackage = urlParams.get('package');
-            
-            if (selectedPackage === 'san-simon') selectedPackage = 'san-simon-beach';
-
-            const optionsParam = urlParams.get('options');
-            const preselectedOptions = optionsParam ? optionsParam.split(',').map(s => decodeURIComponent(s.trim())) : [];
-
-            if (selectedPackage) {
-                selectBox.value = selectedPackage;
-                updateAddons(selectedPackage, preselectedOptions);
-            }
-
-            selectBox.addEventListener('change', (e) => {
-                updateAddons(e.target.value);
-            });
-        }
-
-        if (contactForm) {
-            // Create hidden inputs for Netlify to capture the full names and prices
-            let pkgHidden = contactForm.querySelector('input[name="Selected Package"]');
-            if (!pkgHidden) {
-                pkgHidden = document.createElement('input');
-                pkgHidden.type = 'hidden';
-                pkgHidden.name = 'Selected Package';
-                contactForm.appendChild(pkgHidden);
-            }
-
-            let addHidden = contactForm.querySelector('input[name="Selected Add-ons"]');
-            if (!addHidden) {
-                addHidden = document.createElement('input');
-                addHidden.type = 'hidden';
-                addHidden.name = 'Selected Add-ons';
-                contactForm.appendChild(addHidden);
-            }
-
-            const updateSubmissionValues = () => {
-                const selectedOption = selectBox.options[selectBox.selectedIndex];
-                if (selectedOption && selectBox.value) {
-                    pkgHidden.value = selectedOption.text;
-                } else {
-                    pkgHidden.value = 'General Inquiry / None selected';
-                }
-
-                const checkedBoxes = addonsContainer.querySelectorAll('input[name="addon_item"]:checked');
-                const selectedLabels = Array.from(checkedBoxes).map(cb => cb.value);
-                addHidden.value = selectedLabels.length > 0 ? selectedLabels.join(' | ') : 'None selected';
-            };
-
-            selectBox.addEventListener('change', updateSubmissionValues);
-
-            contactForm.addEventListener('submit', () => {
-                updateSubmissionValues();
-            });
-        }
+        });
     });
 </script>
 
