@@ -136,6 +136,21 @@
             25%, 97% { opacity: 0; z-index: 1; }
             100% { opacity: 1; z-index: 1; }
         }
+
+        /* 7-Image Animation Loop */
+        .slider-7p .tour-img:nth-child(1) { animation: cycle7p 28s infinite; animation-delay: 0s; }
+        .slider-7p .tour-img:nth-child(2) { animation: cycle7p 28s infinite; animation-delay: 4s; }
+        .slider-7p .tour-img:nth-child(3) { animation: cycle7p 28s infinite; animation-delay: 8s; }
+        .slider-7p .tour-img:nth-child(4) { animation: cycle7p 28s infinite; animation-delay: 12s; }
+        .slider-7p .tour-img:nth-child(5) { animation: cycle7p 28s infinite; animation-delay: 16s; }
+        .slider-7p .tour-img:nth-child(6) { animation: cycle7p 28s infinite; animation-delay: 20s; }
+        .slider-7p .tour-img:nth-child(7) { animation: cycle7p 28s infinite; animation-delay: 24s; }
+
+        @keyframes cycle7p {
+            0%, 12% { opacity: 1; z-index: 2; }
+            14.28%, 97% { opacity: 0; z-index: 1; }
+            100% { opacity: 1; z-index: 1; }
+        }
         
         .tour-info { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
         .tour-title { color: #003366; font-size: 2rem; margin-bottom: 5px; }
@@ -234,7 +249,12 @@
 
     <div class="drinks-banner">
         <h2><i class="fas fa-glass-cheers"></i> Courtesy Drinks Included on Every Tour</h2>
-        <p>Stay refreshed with complimentary beverages while you explore the beauty of Roatán with us.</p>
+        <p>To view the full terms and conditions for Roatan First Class Tours, please clikc the button below.</p>
+        <div style="margin-top: 15px;">
+            <a href="terms.html" style="display: inline-flex; align-items: center; gap: 8px; background: #ffb703; color: #003366; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.9rem;">
+                <i class="fas fa-file-contract"></i> View Terms & Conditions
+            </a>
+        </div>
     </div>
 
     <!-- Full East End Tour -->
@@ -260,9 +280,10 @@
 
     <!-- Animal Sanctuary, Rum Company, Chocolate Factory -->
     <div class="tour-card">
-        <div class="tour-img-wrapper slider-3p">
+        <div class="tour-img-wrapper slider-4p">
             <img src="animal-sanctuary.jpeg" class="tour-img" alt="Animal Sanctuary and Stops">
             <img src="san-simon.jpeg" class="tour-img" alt="Roatan Island Tour">
+            <img src="roatan-atv.jpeg" class="tour-img" alt="Roatan ATV">
             <img src="roatan-rum-company.jpeg" class="tour-img" alt="Roatan Rum Company">
         </div>
         <div class="tour-info">
@@ -300,7 +321,7 @@
                 <label style="font-size: 0.9rem; cursor: pointer;"><input type="checkbox" value="Rum Company" style="margin-right: 6px;"> Rum Company</label>
                 <label style="font-size: 0.9rem; cursor: pointer;"><input type="checkbox" value="Chocolate Factory" style="margin-right: 6px;"> Chocolate Factory</label>
                 <label style="font-size: 0.9rem; cursor: pointer;"><input type="checkbox" value="Brewery" style="margin-right: 6px;"> Brewery</label>
-                <label style="font-size: 0.9rem; cursor: pointer;"><input type="checkbox" value="Sightseeing" style="margin-right: 6px;"> Sightseeing</label>
+                <label style="font-size: 0.9rem; cursor: pointer;"><input type="checkbox" value="Cultural Tour" style="margin-right: 6px;"> Cultural Tour</label>
             </div>
 
             <div class="tour-actions">
@@ -309,23 +330,24 @@
         </div>
     </div>
 
-    <!-- Animal Sanctuary, Roatan Brewing Company, Sightseeing -->
+    <!-- AJ'S Monkey & Sloth, Roatan Brewing Stop, Sightseeing -->
     <div class="tour-card">
         <div class="tour-img-wrapper slider-4p">
-            <img src="east-snorkel-3.jpeg" class="tour-img" alt="East Snorkeling">
-            <img src="west-snorkeling.jpg" class="tour-img" alt="Snorkeling in Roatan">
-            <img src="bradys-cay.jpeg" class="tour-img" alt="Brady's Cay">
             <img src="roatan-brewing.jpg" class="tour-img" alt="Roatan Brewing">
+            <img src="roatan-zip-line.jpg" class="tour-img" alt="Roatan Zip Line">
+            <img src="aj-roatan.jpg" class="tour-img" alt="AJ'S Ratan Sloth">
+            <img src="roatan-brewing-2.jpeg" class="tour-img" alt="Roatan Brewing">
+            <img src="iguana-park-roat.JPG" class="tour-img" alt="Roatan Iguana Park">
         </div>
         <div class="tour-info">
-            <h2 class="tour-title">Animal Sanctuary, Roatan Brewing Company, Sightseeing</h2>
+            <h2 class="tour-title">AJ'S Monkey & Sloth, Roatan Brewing Stop, Sightseeing</h2>
             <div class="tour-meta">
                 <span class="tour-price">$70.00 <small>/ person</small></span>
                 <span class="tour-features"><i class="fas fa-paw"></i> Wildlife & Craft Beer</span>
             </div>
             <p class="tour-description">Explore the scenic landscapes of Roatán! Visit the animal sanctuary to interact with local wildlife, enjoy a guided sightseeing adventure across the island, and unwind with refreshing local drinks at the Roatan Brewing Company.</p>
             <div class="tour-actions">
-                <a href="contact.html?package=animal-sanctuary-brewing" class="details-btn">Book Package</a>
+                <a href="contact.html?package=ajs-monkey-sloth" class="details-btn">Book Package</a>
             </div>
         </div>
     </div>

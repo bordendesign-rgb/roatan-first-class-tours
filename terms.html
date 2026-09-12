@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Roatan First Class Tours</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta property="og:title" content="Terms & Conditions | Roatan First Class Tours">
+    <meta property="og:image" content="first-class-logo.jpeg">
+    <link rel="icon" type="image/jpeg" href="first-class-logo.jpeg">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; color: #333; background-color: #fcfcfc; overflow-x: hidden; }
+
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 0.5rem 5%; background: #fff; position: relative; z-index: 100;
+        }
+        .logo { height: 200px; width: auto; display: block; }
+        
+        .header-text { 
+            font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: #003366; margin: 0 20px; text-align: center;
+        }
+
+        nav { display: flex; align-items: center; gap: 20px; }
+        nav a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; }
+        .book-btn { background: #ffb703; padding: 10px 20px; border-radius: 5px; color: #fff; font-weight: bold; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        .hero { 
+            position: relative; height: 50vh; 
+            background: url('roatan-reef.jpeg') center/cover;
+            display: flex; flex-direction: column; justify-content: center; 
+            padding: 0 5%; color: white;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0, 51, 102, 0.7) 0%, rgba(0, 51, 102, 0.85) 100%);
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+        .hero-content { position: relative; z-index: 1; text-align: center; width: 100%; }
+        .gold-line { display: block; width: 50px; height: 3px; background: #ffb703; margin: 10px auto; }
+        .hero h1 { font-size: 3.5rem; }
+
+        .terms-container { padding: 4rem 5%; max-width: 900px; margin: auto; width: 100%; }
+        
+        .terms-intro {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #444;
+            border-left: 5px solid #ffb703;
+        }
+
+        .terms-section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+            margin-bottom: 1.5rem;
+        }
+
+        .terms-section h3 {
+            color: #003366;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .terms-section h3 i {
+            color: #ffb703;
+            font-size: 1.1rem;
+        }
+
+        .terms-section p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .terms-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer { background: #fff; padding: 3rem 5%; color: #003366; border-top: 2px solid #eee; }
+        .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; align-items: start; }
+        .footer-logo { height: 160px; max-width: 100%; }
+        .footer-links h4, .footer-contact h4 { margin-bottom: 15px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+        .footer-links p a { text-decoration: none; color: #003366; display: block; margin-bottom: 8px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 10px; }
+        .social-icons a { color: #003366; font-size: 1.5rem; }
+        .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; justify-content: flex-start; word-break: break-word; }
+        .whatsapp-btn { background: #25D366; color: white; padding: 2px 8px; border-radius: 4px; text-decoration: none; font-size: 0.7rem; font-weight: bold; }
+
+        @media (max-width: 900px) {
+            .menu-toggle { display: block; }
+            nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; flex-direction: column; padding: 20px; gap: 15px; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+            nav.active { display: flex; }
+            header { flex-direction: column; padding: 1rem; }
+            .logo { height: 120px; }
+            .header-text { font-size: 2rem; margin: 10px 0; }
+            .hero h1 { font-size: 2.5rem; }
+            
+            .terms-container { padding: 2.5rem 1rem; }
+            .terms-section, .terms-intro { padding: 1.5rem; }
+
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .footer-logo { margin: 0 auto; height: 120px; }
+            .social-icons { justify-content: center; }
+            .contact-item { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="first-class-logo.jpeg" class="logo" alt="Roatan First Class Tours">
+    <div class="header-text">Roatan First Class Tours</div>
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="tours.html">Packages</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="tours.html" class="book-btn">BOOK NOW</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Terms & Conditions</h1>
+        <span class="gold-line"></span>
+    </div>
+</section>
+
+<main class="terms-container">
+
+    <div class="terms-intro">
+        By booking a tour, excursion, transportation service, or activity with Roatan First Class Tours, you acknowledge that you have read, understood, and agreed to the following Terms & Conditions.
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 1. Reservations & Booking Confirmation</h3>
+        <p>All reservations are subject to availability. A booking is considered confirmed once the customer receives confirmation from Roatan First Class Tours.</p>
+        <p>Guests are responsible for providing accurate information when making a reservation, including the number of participants, contact information, cruise ship information when applicable, and any special requirements.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 2. Payments</h3>
+        <p>Prices are quoted in U.S. dollars (USD) unless otherwise stated.</p>
+        <p>Payment requirements, including deposits or full payment, will be communicated at the time of booking. Any remaining balance must be paid according to the instructions provided with the reservation.</p>
+        <p>Additional activities, upgrades, food, beverages, entrance fees, or services not specifically listed as included in the tour price may carry an additional charge.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 3. Cancellations & Refunds</h3>
+        <p>We understand that travel plans can change.</p>
+        <p>Cancellations made at least 24 hours before the scheduled tour may be eligible for a full refund.</p>
+        <p>Cancellations made less than 24 hours before the scheduled tour, as well as no-shows, may be non-refundable.</p>
+        <p>If ship does not dock, client will be refunded 100%.</p>
+        <p>If Roatan First Class Tours must cancel an excursion because of severe weather, unsafe conditions, or another circumstance that prevents us from safely providing the service, guests may be offered an alternative date, an alternative experience, or a refund, depending on the circumstances.</p>
+        <p>Deposits are non-refundable if canceled day of tour.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 4. Cruise Ship Guests</h3>
+        <p>We understand the importance of returning cruise passengers to their ship on time.</p>
+        <p>Guests are responsible for providing the correct cruise ship name and schedule when booking. Tour schedules may be adjusted according to the ship’s arrival and departure times.</p>
+        <p>If a cruise ship does not dock in Roatán or the port call is officially canceled, guests should contact us as soon as possible. Eligible prepaid reservations may be rescheduled or refunded according to the circumstances of the cancellation.</p>
+        <p>Roatan First Class Tours will make every reasonable effort to return cruise passengers to the appropriate port with sufficient time before their ship’s scheduled departure.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 5. Weather & Itinerary Changes</h3>
+        <p>Roatán’s weather and local conditions can change quickly. Certain activities may be modified, delayed, substituted, or canceled due to weather, road conditions, attraction availability, safety concerns, or circumstances outside our reasonable control.</p>
+        <p>We reserve the right to adjust an itinerary when necessary to protect the safety and comfort of our guests.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 6. Activities & Participation</h3>
+        <p>Some excursions may include activities such as ATV riding, beach visits, wildlife encounters, snorkeling, sightseeing, or other recreational activities.</p>
+        <p>Guests are responsible for determining whether they are physically capable of participating in their selected activities and must follow all safety instructions provided by guides, drivers, attraction operators, and activity providers.</p>
+        <p>Certain activities may have age, height, weight, health, licensing, or other participation requirements established by the individual activity provider.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 7. Third-Party Attractions & Activity Providers</h3>
+        <p>Some tours may include services or activities operated by independent third parties, including animal parks, beach facilities, ATV operators, restaurants, water-sports providers, and other attractions.</p>
+        <p>Roatan First Class Tours coordinates these experiences for our guests but does not control the day-to-day operation of independent third-party businesses.</p>
+        <p>Guests must follow the individual rules and safety requirements of each attraction or activity provider.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 8. Personal Belongings</h3>
+        <p>Guests are responsible for their personal belongings during the excursion.</p>
+        <p>Roatan First Class Tours is not responsible for items that are lost, forgotten, stolen, or damaged during a tour, except where responsibility is required by applicable law.</p>
+        <p>We recommend keeping valuables, passports, phones, cameras, and other personal items secure at all times.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 9. Transportation</h3>
+        <p>Transportation will be provided according to the tour or service booked.</p>
+        <p>Guests must follow the driver’s safety instructions and remain properly seated while the vehicle is moving. Children must be supervised by a responsible adult at all times.</p>
+        <p>Travel times may vary because of traffic, weather, road conditions, port activity, or other circumstances outside our reasonable control.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 10. Alcohol & Guest Conduct</h3>
+        <p>Guests are expected to behave respectfully toward guides, drivers, other guests, local residents, animals, and staff at participating attractions.</p>
+        <p>Roatan First Class Tours reserves the right to refuse or discontinue service when a guest’s behavior creates a safety risk, is abusive or threatening, causes serious disruption, or involves excessive intoxication.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 11. Children</h3>
+        <p>Children must remain under the supervision of a parent or responsible adult throughout the excursion.</p>
+        <p>Parents or guardians are responsible for determining whether an activity is appropriate for their child and for complying with any age or safety requirements imposed by individual activity providers.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 12. Changes to Reservations</h3>
+        <p>Requests to change the date, time, number of participants, activities, or other reservation details are subject to availability and may result in a price adjustment.</p>
+        <p>Please contact us as soon as possible if you need to modify your reservation.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 13. Safety & Assumption of Risk</h3>
+        <p>Travel and recreational activities may involve inherent risks. By voluntarily participating, guests acknowledge the ordinary risks associated with the activities they choose.</p>
+        <p>Roatan First Class Tours takes reasonable precautions to provide safe and enjoyable experiences. Nothing in these Terms & Conditions excludes or limits any responsibility that cannot legally be excluded under applicable law.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 14. Pricing & Inclusions</h3>
+        <p>Tour prices and inclusions are those stated in the booking confirmation at the time of purchase.</p>
+        <p>Promotions and prices may change without notice for future bookings. Once a reservation is confirmed, its agreed price will not be changed except when the customer requests modifications or additional services.</p>
+    </div>
+
+    <div class="terms-section">
+        <h3><i class="fas fa-chevron-right"></i> 15. Acceptance of Terms</h3>
+        <p>By making a reservation or participating in a service provided by Roatan First Class Tours, guests confirm that they have read and accepted these Terms & Conditions.</p>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div><img src="first-class-logo.jpeg" class="footer-logo" alt="Footer Logo"></div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="about.html">About Us</a></p>
+            <p><a href="tours.html">Packages</a></p>
+            <p><a href="reviews.html">Reviews</a></p>
+            <p><a href="contact.html">Contact</a></p>
+            <p><a href="terms.html">Terms & Conditions</a></p>
+        </div>
+        <div class="footer-links">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61594022260957&mibextid=wwXIfr&rdid=8MB9uOYlswleNaL7&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19hNPR3f7g%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/roatanfirstclass_tours/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tripadvisor.com/Attraction_Review-g292019-d34668708-Reviews-Roatan_First_Class_Tours-Roatan_Bay_Islands.html" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tripadvisor.svg" alt="TripAdvisor" style="width: 20px; height: 20px; filter: invert(13%) sepia(49%) saturate(4530%) hue-rotate(195deg) brightness(92%) contrast(102%); vertical-align: middle;">
+                </a>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <div class="contact-item"><i class="fas fa-phone"></i> (504) 9458-4225 <a href="https://wa.me/50494584225" class="whatsapp-btn">WhatsApp</a></div>
+            <div class="contact-item"><i class="fas fa-phone"></i> (504) 8787-0047 <a href="https://wa.me/50487870047" class="whatsapp-btn">WhatsApp</a></div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> info@roatanfirstclasstours.com</div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Roatán, Bay Islands, Honduras</div>
+        </div>
+    </div>
+    <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.8; text-align: center;">
+        © 2026 Roatan First Class Tours. All Rights Reserved.
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
