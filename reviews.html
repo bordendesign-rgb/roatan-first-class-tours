@@ -246,46 +246,84 @@
             </div>
         </div>
 
+        <!-- Review 7 -->
+<div class="review-card">
+    <div class="review-img-wrapper">
+        <img src="review-4.jpg" class="review-img" alt="Marco H Roatan Tour Review">
+    </div>
+    <div class="review-content">
+        <h3 class="reviewer-name">Marco H</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="review-text">"We had an amazing experience with this tour company in Honduras! From start to finish, everything was well organized and professional. Tannia was friendly, knowledgeable, and made sure we felt comfortable and had a great time throughout the entire tour. Tannia was amazing. She went above and beyond and made sure we enjoyed the entire time."</p>
+        <span class="review-date">Aug 2026 • Friends</span>
+    </div>
+</div>
+
+<!-- Review 8 -->
+<div class="review-card">
+    <div class="review-img-wrapper">
+        <img src="review-5.jpg" class="review-img" alt="Brian D Roatan Tour Review">
+    </div>
+    <div class="review-content">
+        <h3 class="reviewer-name">Brian D</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="review-text">"Fun in paradise! Tannia was the best!! She was so knowledgeable, friendly and Honduras native! She made sure my family and I were having an amazing time. We did an island tour, got to visit the San Simon beach club & Little French Key. We loved the hospitality and will be back soon! Thank you so much Tannia for making it your priority to make our time in Roatan a blast! Make sure to book with Roatan First Class Tours!"</p>
+        <span class="review-date">Sep 2026</span>
+    </div>
+</div>
+
     </div>
 
     <!-- Share Experience Form -->
-    <div class="form-section">
-        <h3>Share Your Experience</h3>
-        <p>Your feedback helps us continue providing premium island experiences.</p>
+<div class="form-section">
+    <h3>Share Your Experience</h3>
+    <p>Your feedback helps us continue providing premium island experiences.</p>
+    
+    <form class="review-form" name="client-reviews" method="POST" data-netlify="true">
+        <!-- Hidden input required by Netlify for bot protection / form identification -->
+        <input type="hidden" name="form-name" value="client-reviews">
         
-        <form class="review-form" onsubmit="event.preventDefault(); alert('Thank you for your review!');">
-            <div class="form-group">
-                <label for="client-name">Your Name</label>
-                <input type="text" id="client-name" placeholder="e.g., John Doe" required>
+        <div class="form-group">
+            <label for="client-name">Your Name</label>
+            <input type="text" id="client-name" name="client-name" placeholder="e.g., John Doe" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="tour-booked">Tour Booked / Subject</label>
+            <input type="text" id="tour-booked" name="tour-booked" placeholder="e.g., Island Tour & Sloths" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Your Rating</label>
+            <div class="rating-select">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1"><i class="fas fa-star"></i></label>
             </div>
-            
-            <div class="form-group">
-                <label>Your Rating</label>
-                <div class="rating-select">
-                    <input type="radio" id="star5" name="rating" value="5"><label for="star5"><i class="fas fa-star"></i></label>
-                    <input type="radio" id="star4" name="rating" value="4"><label for="star4"><i class="fas fa-star"></i></label>
-                    <input type="radio" id="star3" name="rating" value="3"><label for="star3"><i class="fas fa-star"></i></label>
-                    <input type="radio" id="star2" name="rating" value="2"><label for="star2"><i class="fas fa-star"></i></label>
-                    <input type="radio" id="star1" name="rating" value="1"><label for="star1"><i class="fas fa-star"></i></label>
-                </div>
-            </div>
+        </div>
 
-            <div class="form-group full-width">
-                <label>Upload Your Tour Photo</label>
-                <div class="file-upload-wrapper">
-                    <div class="file-upload-btn"><i class="fas fa-camera"></i> Choose a Beautiful Memory</div>
-                    <input type="file" accept="image/*">
-                </div>
+        <div class="form-group full-width">
+            <label>Upload Your Tour Photo</label>
+            <div class="file-upload-wrapper">
+                <div class="file-upload-btn"><i class="fas fa-camera"></i> Choose a Beautiful Memory</div>
+                <input type="file" name="tour-photo" accept="image/*">
             </div>
+        </div>
 
-            <div class="form-group full-width">
-                <label for="experience">Tell Us About Your Experience</label>
-                <textarea id="experience" rows="5" placeholder="Share your favorite moments from your tour..." required></textarea>
-            </div>
+        <div class="form-group full-width">
+            <label for="experience">Tell Us About Your Experience</label>
+            <textarea id="experience" name="experience" rows="5" placeholder="Share your favorite moments from your tour..." required></textarea>
+        </div>
 
-            <button type="submit" class="submit-btn">Submit Review</button>
-        </form>
-    </div>
+        <button type="submit" class="submit-btn">Submit Review</button>
+    </form>
+</div>
 
 </main>
 
