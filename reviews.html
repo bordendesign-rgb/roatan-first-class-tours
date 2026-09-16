@@ -311,8 +311,8 @@
         <div class="form-group full-width">
             <label>Upload Your Tour Photo</label>
             <div class="file-upload-wrapper">
-                <div class="file-upload-btn"><i class="fas fa-camera"></i> Choose a Beautiful Memory</div>
-                <input type="file" name="tour-photo" accept="image/*">
+                <div class="file-upload-btn" id="upload-btn-text"><i class="fas fa-camera"></i> Choose a Beautiful Memory</div>
+                <input type="file" name="tour-photo" accept="image/*" id="tour-photo-input" onchange="document.getElementById('upload-btn-text').innerHTML = '<i class=\'fas fa-check\'></i> ' + (this.files[0] ? this.files[0].name : 'Choose a Beautiful Memory');">
             </div>
         </div>
 
